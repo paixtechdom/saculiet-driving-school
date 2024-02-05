@@ -1,0 +1,60 @@
+import { useEffect, useState } from "react"
+import { Nos } from "../../assets/Constants"
+import { Parallax, ParallaxRight } from "../../Components/Parallax"
+
+export const Numbers = () => {
+    const [ showNo, setShowNo ] = useState(false)
+    useEffect(() =>{
+        document.addEventListener('scroll', handleScroll)
+        
+    }, [])
+
+    const handleScroll = () => {
+        const nums = document.querySelector('#numbers')
+            const pos = nums.getBoundingClientRect()
+            if( pos.top < 700) {
+                setShowNo(true)
+            } 
+    }
+
+    return(
+        <div id='numbers' className="flex flex-col justify-center items-center w-full text-gray-900 py-9 border-t border-b bg-blue">
+        <div className="justify-between xl:w-9/12 w-11/12 items-center transition-all duration-500 grid grid-cols-2 md:flex text-gray-200 py-9 gap-y-9 ">
+            {
+                showNo ? 
+                Nos.map((no, key)  =>(
+                       <No no={no} key={key}/>
+                       )) : ''
+            }
+        </div>
+    </div>
+    )
+}
+
+const No = ({no, key}) => {
+    const [ newNo, setNewNo ] = useState(0)
+
+    useEffect(() => {
+        const int = setInterval(() => {
+            read()
+        }, 30);
+        return () => clearInterval(int)
+    }, [newNo])
+
+    const read = () => {
+        setNewNo(newNo == no.no ? no.no : newNo + 1)
+    }
+    return(
+        <div className='overflow-hidden relative left-0 rounded-xl w-full flex-col flex items-center justify-center gap-1'>
+            <ParallaxRight key={key} id={`${no.title[0]}${no.title[1]}`}>
+            <i className={`bi bi-${no.icon} text-5xl`}></i>
+            </ParallaxRight>
+            {/* <Parallax key={key} id={`${no.title[1]}${no.title[0]}`}> */}
+            <p className="text-lg text-gray-300">{newNo}+</p>
+            {/* </Parallax> */}
+            <Parallax key={key} id={`${no.title[1]}${no.title[0]}`}>
+            <h3 className=''>{no.title}</h3>
+            </Parallax>
+        </div>
+    )
+}
