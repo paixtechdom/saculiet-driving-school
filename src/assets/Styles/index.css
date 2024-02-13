@@ -82,7 +82,7 @@
     background-color: rgb(5, 109, 5);
     color: white
 }
-.danger, .cancelled{
+.danger, .cancelled, .error{
     /* background-color: var(--secColor); */
     background-color: rgb(96, 2, 2);
     color: white
@@ -98,7 +98,7 @@
 .border-success, .border-active{
     border: 2px solid rgb(5, 109, 5);
 }
-.border-danger, .border-cancelled{
+.border-danger, .border-cancelled, .border-error{
     /* background-color: var(--secColor); */
     border: 2px solid rgb(96, 2, 2);
 }

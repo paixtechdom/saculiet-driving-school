@@ -23,7 +23,7 @@ export const Numbers = () => {
             {
                 showNo ? 
                 Nos.map((no, key)  =>(
-                       <No no={no} key={key}/>
+                       <No key={key} no={no} />
                        )) : ''
             }
         </div>
@@ -31,7 +31,7 @@ export const Numbers = () => {
     )
 }
 
-const No = ({no, key}) => {
+const No = ({no}) => {
     const [ newNo, setNewNo ] = useState(0)
 
     useEffect(() => {
@@ -46,13 +46,14 @@ const No = ({no, key}) => {
     }
     return(
         <div className='overflow-hidden relative left-0 rounded-xl w-full flex-col flex items-center justify-center gap-1'>
-            <ParallaxRight key={key} id={`${no.title[0]}${no.title[1]}`}>
+            <ParallaxRight id={`${no.title[0]}${no.title[1]}`}>
             <i className={`bi bi-${no.icon} text-5xl`}></i>
             </ParallaxRight>
+
             {/* <Parallax key={key} id={`${no.title[1]}${no.title[0]}`}> */}
             <p className="text-lg text-gray-300">{newNo}+</p>
             {/* </Parallax> */}
-            <Parallax key={key} id={`${no.title[1]}${no.title[0]}`}>
+            <Parallax id={`${no.title[1]}${no.title[0]}`}>
             <h3 className=''>{no.title}</h3>
             </Parallax>
         </div>

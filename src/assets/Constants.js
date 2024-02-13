@@ -8,8 +8,8 @@ import trainingPic from './images/images (19).jpeg'
 
 const Logo  = logo;
 const LogoText  = logoText;
+
 const  db = 'https://saculietdrivingschool.com/saculietAPI'
-// 
 // const  db = 'http://localhost:80/saculietAPI'
 
 
@@ -96,12 +96,6 @@ const SocialMediaInfo = [
         text: 'NO 16 & 17C, Suite 128 Abiodun Jagun Street, Jeho Shamah Plaza Ogba Ikeja Lagos',
         link: ''
     },
-    {
-        title: 'Email',
-        icon: 'envelope',
-        link: 'mailto:customerservice@saculietdrivingschool.com',
-        text: 'customerservice@saculietdrivingschool.com'
-    },
     {   
         title: 'Call',
         icon: 'telephone',
@@ -113,6 +107,44 @@ const SocialMediaInfo = [
         icon: 'whatsapp',
         link: 'https://api.whatsapp.com/send?phone=2347057949759',
         text: '+2347057949759'
+    },
+]
+const Emails = [
+    {
+        title: 'Customer Service',
+        icon: 'envelope',
+        link: 'mailto:customerservice@saculietdrivingschool.com',
+        text: 'customerservice@saculietdrivingschool.com'
+    },
+    {
+        title: 'Business Development',
+        icon: 'envelope',
+        link: 'mailto:businessdevelopment@saculietdrivingschool.com',
+        text: 'businessdevelopment@saculietdrivingschool.com'
+    },
+    {
+        title: 'Transport and Logistics',
+        icon: 'envelope',
+        link: 'mailto:transportandlogistics@saculietdrivingschool.com',
+        text: 'transportandlogistics@saculietdrivingschool.com'
+    },
+    {
+        title: 'Training Department',
+        icon: 'envelope',
+        link: 'mailto:trainingdepartment@saculietdrivingschool.com',
+        text: 'trainingdepartment@saculietdrivingschool.com'
+    },
+    {
+        title: 'Elizabeth Funmilayo',
+        icon: 'envelope',
+        link: 'mailto:elizabethfunmilayo@saculietdrivingschool.com',
+        text: 'elizabethfunmilayo@saculietdrivingschool.com'
+    },
+    {
+        title: 'Mr Onido',
+        icon: 'envelope',
+        link: 'mailto:onido@saculietdrivingschool.com',
+        text: 'onido@saculietdrivingschool.com'
     },
 ]
 
@@ -276,4 +308,4 @@ const ReviewsData = [
 ]
 
 
-export { Logo, LogoText, NavInfo, SocialMediaInfo, AfterHeroContent, CarouselItems, ServicesRendered, Nos, classes, ReviewsData, db }
+export { Logo, LogoText, NavInfo, SocialMediaInfo, AfterHeroContent, CarouselItems, ServicesRendered, Nos, classes, ReviewsData, db, Emails }

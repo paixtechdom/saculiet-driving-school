@@ -32,12 +32,12 @@ export const Nav = ({currentNav, setCurrentNav}) => {
 
     return(
     <div className={`flex justify-center items-center w-full py-2 fixed top-0 z-50 bg-white shadow-lg`} style={{
-        zIndex: 400
+        zIndex: 506
     }}>
         <div className="flex justify-between xl:w-9/12 w-11/12 items-center transition-all duration-500 md:bg-none z-50">
 
-            {/* <a href='https://saculietdrivingschool.com' className="logo text-2xl text-gray-300"> */}
-            <a href='http://localhost:5173' className="logo text-2xl text-gray-300">
+            <a href='https://saculietdrivingschool.com' className="logo text-2xl text-gray-300">
+            {/* <a href='http://localhost:5173' className="logo text-2xl text-gray-300"> */}
 
                 <img src={Logo} alt="Logo" className="w-2/12 md:w-3/12"/>
             </a>
@@ -56,8 +56,8 @@ export const Nav = ({currentNav, setCurrentNav}) => {
 
                 {
                     NavInfo.map((nav, key) => (
-                        // <a key={key} href={`https://saculietdrivingschool.com/${nav.link}`} className={`flex items-center gap-3 items-center md:gap-0 md:flex-col ${currentNav == key ? 'opacity-50' : ''}`} onClick={()=> {
-                        <a key={key} href={`http://localhost:5173/${nav.link}`} className={`flex items-center gap-3 items-center md:gap-0 md:flex-col text-sm ${currentNav == key ? 'opacity-50' : ''}`} onClick={()=> {
+                        <a key={key} href={`https://saculietdrivingschool.com/${nav.link}`} className={`flex items-center gap-3 items-center md:gap-0 md:flex-col ${currentNav == key ? 'opacity-50' : ''}`} onClick={()=> {
+                        // <a key={key} href={`http://localhost:5173/${nav.link}`} className={`flex items-center gap-3 items-center md:gap-0 md:flex-col text-sm ${currentNav == key ? 'opacity-50' : ''}`} onClick={()=> {
                             setCurrentNav(key)
                             setDropDownPos(100)
                             }}>

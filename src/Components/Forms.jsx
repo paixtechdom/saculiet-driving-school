@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { PrimaryButton } from "./Button"
 import logo from '../assets/Images/IMG-20240114-WA0052.jpg'
-import { SocialMediaInfo } from "../assets/Constants"
+import { SocialMediaInfo, Emails } from "../assets/Constants"
 import { ParallaxRight } from "../Components/Parallax"
 import { CircleLoader, ClipLoader, FadeLoader, RotateLoader } from "react-spinners"
 import axios from "axios"
+import { AppContext } from "../assets/Contexts/AppContext"
 const Suscribe = () => {
     const [ scale, setScale ] = useState(1)
 
@@ -58,6 +59,8 @@ const ContactForm = () => {
     const [ nameError, setNameError ] = useState(false)
     const [ messageError, setMessageError ] = useState(false) 
     const [ isLoading, setIsLoading ] = useState(false) 
+    const { setShowAlert, setAlertType, setAlertMessage, dbLocation } = useContext(AppContext)
+
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
@@ -76,42 +79,46 @@ const ContactForm = () => {
             setIsLoading(true)
             setMessageError(false)
             setNameError(false)
-            
-            // const serviceId = 'service_xhn7c5e';
-            const serviceId = 'service_w8a4yne';
-            const templateId = 'template_wi4behi';
-            const publicKey = 'OB73Vlg7iLdz4EZD6';
-            
-            const data = {
-                service_id: serviceId ,
-                template_id: templateId,
-                user_id: publicKey,
-                template_params: {
-                    from_name: name,
-                    from_email: email,
-                    to_name: 'Saculiet Driving School',
-                    message: 'MESSAGE - ' + message 
-                }
-            };
+            const subject = 'Message from ' + name + ' to Saculiet Driving School'
 
-            await axios.post("https://api.emailjs.com/api/v1.0/email/send", data)
-            .then((response) => {
-            // setShowAlert(true)
-            // setAlertType('success')
-            setIsLoading(false)
-            alert('Message sent!')
-            setName('')
-            setEmail('')
-            setMessage('')
-        })
-        .catch((error) =>{
-            // setShowAlert(true)
-            setIsLoading(false)
-            // setAlertType('error')
-            // setAlertMessage('Error sending message')
-        })
+            sendContactEmail('customerservice@saculietdrivingschool.com', subject, message, email)
+
+           
+
+           
      }
     }
+    const sendContactEmail = (email, subject, message, from ) => {
+        const newMessage = message.replaceAll(/\n/g, '<br>')
+
+        axios.post(`${dbLocation}/contactEmail.php/` ,{
+            to: email,
+            subject: subject,
+            message: newMessage,
+            from: from,
+          }, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+          .then(response => {
+            setShowAlert(true)
+            setAlertType('success')
+            setIsLoading(false)
+            setAlertMessage(['Message Sent successfully'])
+            // setName('')
+            // setEmail('')
+            // setMessage('')
+        })
+        .catch(error => {
+                setShowAlert(true)
+                setAlertType('error')
+                setIsLoading(false)
+                setAlertMessage(['Error sending message'])
+            });
+    
+          
+      }
 
 
 
@@ -133,6 +140,22 @@ const ContactForm = () => {
                                         <p className="text-sm text-gray-300" style={{
                                             lineHeight: 22+'px'
                                         }}>{media.text}</p>
+                                    </div>
+                                </a>
+                            </ParallaxRight>
+                        ))
+                    }
+                    {
+                        Emails.map((email, key) => (
+                            <ParallaxRight key={key} id={`${email.icon}`}>
+
+                                <a  href={`${email.link}`}
+                                className="flex gap-4">
+                                        <i className={`bi bi-${email.icon} text-lg text-gray-300 text-2xl`}></i>
+                                    <div className="flex flex-col w-full gap-1"> 
+                                        <h3 className="text-lg">{email.title}</h3>
+                                        <a className="truncate" href={`mailto:${email.text}`}>{email.text}</a>
+                                        
                                     </div>
                                 </a>
                             </ParallaxRight>
@@ -160,7 +183,7 @@ const ContactForm = () => {
                     <ParallaxRight clas='w-full' id='email'>
                         <div className="flex border w-full rounded-lg overflow-hidden">
                                 <i className="bi bi-envelope-fill bg-black p-2 text-white opacity-50"></i>
-                                <input type="email" placeholder="Enter your email" className="bg-transparent p-2 w-full"  value={email}
+                                <input type="email" placeholder="Enter your email address" className="bg-transparent p-2 w-full"  value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required/>
                         </div>

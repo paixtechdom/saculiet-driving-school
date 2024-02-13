@@ -13,12 +13,14 @@ export const Alert = () => {
                     <i className={`bi bi-${
                         alertType == 'success' ? 'check' :
                         alertType == 'cancelled' ? 'x-lg' :
+                        alertType == 'error' ? 'x-lg' :
+                        alertType == 'Oops' ? 'exclamation-circle-fill' :
                         alertType == 'expired' ? 'clock-fill' :
                         alertType == 'pending' ? 'exclamation-octagon-fill' : ''
                     } text-5xl ${alertType} rounded-full p-2 px-2`}></i> 
     
                     <h3 className="text-xl">{alertType?.toUpperCase()}</h3>
-                    <p className="flex flex-col text-center text-sm line-25">
+                    <p className="flex flex-col text-center text-sm line-25 gap-1">
                         {
                              React.Children.toArray(
                                 alertMessage.map(message => 

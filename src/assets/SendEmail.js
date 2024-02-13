@@ -21,11 +21,13 @@ const sendVerificationEmail = (email, subject, text, from, UserName) => {
       
   }
 
-const notifyAdminEmail = (email, subject, organizationName, link ) => {
+const notifyAdminEmail = (email, subject, organizationName, link, firstname, lastname ) => {
     axios.post(`${db}/notifyAdmin.php/` ,{
         to: email,
         subject: subject,
-        text: organizationName,
+        firstName: firstname,
+        lastName: lastname,
+        organizationName: organizationName,
         link: link,
       }, {
         headers: {
@@ -37,6 +39,9 @@ const notifyAdminEmail = (email, subject, organizationName, link ) => {
 
       
   }
+
+
+
 
 
   export { sendVerificationEmail, notifyAdminEmail }

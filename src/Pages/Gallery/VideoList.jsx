@@ -14,9 +14,11 @@ import { VideoComponent } from './VideoComponent'
 export const VideoList = ({type}) => {
     const [ videos, setVideos ] = useState([])
     const [ id, setId ] = useState(10)
-    const { dbLocation } = useContext(AppContext)
-
+    const { dbLocation, setCurrentNav, setDisplayPisc } = useContext(AppContext)
     useEffect(() => {
+        document.documentElement.scrollTop = 0
+        setDisplayPisc(false)
+        setCurrentNav(4)
         // fetchMoreVideo()
         fetchVideos()
     }, [])
@@ -30,6 +32,7 @@ export const VideoList = ({type}) => {
         else{
             axios.get(`${dbLocation}/videos.php`).then(function(res){
                 setVideos(res.data)
+                console.log(res.data)
             })
         }
     }  
@@ -48,7 +51,7 @@ export const VideoList = ({type}) => {
 
     return(
         <div className="flex flex-col justify-center items-center w-full text-gray-900 border-t border-b">
-        <div className="flex justify-between w-11/12 flex-col gap-5">
+        <div className="flex justify-between w-11/12 flex-col gap-5 mt-6">
             <h3 className='w-11/12 text-3xl md:text-4xl text-blue mt-9'>Videos</h3>
             {
                 type == 'home'?
@@ -57,13 +60,11 @@ export const VideoList = ({type}) => {
                 </a> : ''
             }
         </div>
-        <div className="justify-center xl:w-9/12 w-11/12 items-center transition-all duration-500 flex-col md:grid md:grid-cols-3 gap-10 md:flex text-gray-200 pb-9">
+        <div className="justify-center xl:w-9/12 w-11/12 items-center transition-all duration-500 flex-col md:grid md:grid-cols-3 md:flex text-gray-200 py-9">
                 {
                     React.Children.toArray(
                         videos?.map((video, i) => (
                             <VideoComponent src={`${dbLocation}/videos/${video.fileName}`} id={video.fileName.replaceAll(' ', '').replaceAll('/', '').replaceAll('-','').replaceAll('(', '').replaceAll(')','').replaceAll('.', '')}
-
-                            // fetchMoreVideo={fetchMoreVideo} setId={setId} video={video}
                             />
                         ))
                     )

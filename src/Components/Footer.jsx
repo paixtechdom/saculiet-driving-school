@@ -1,11 +1,23 @@
 import { Link } from "react-router-dom"
-import { NavInfo } from "../assets/Constants"
+import { Emails, NavInfo } from "../assets/Constants"
 import { ContactForm } from "./Forms"
 import { ParallaxRight } from "./Parallax"
+import { GalleryNav } from "../Pages/Gallery/Gallery"
+import { useContext } from "react"
+import { AppContext } from "../assets/Contexts/AppContext"
 
 export const Footer = () => {
+    const { currentNav } = useContext(AppContext)
     return(
-        <div className="section flex justify-center items-center w-full text-gray-200 py-9 bg-blue mt-9">
+        <>
+        {
+            currentNav == 4 ?
+            <GalleryNav />
+            : ''
+        }
+        <div className="section relative flex justify-center items-center w-full text-gray-200 py-9 bg-blue mt-9" style={{
+            zIndex: 505
+        }}>
             <div className="flex justify-between xl:w-9/12 w-11/12 items-center transition-all duration-500 gap-9 flex-col ">
             <div className="flex w-full">
                 <ContactForm />
@@ -38,5 +50,6 @@ export const Footer = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }

@@ -15,8 +15,8 @@ const Card = ({header, text, img, buttonText, buttonLink, clas, w, buttonIcon, g
                         <div className="text-gray-700 text-sm flex flex-col gap-3">
                             {
                                 text.map((t, key) => (
-                                    <ParallaxRight id={`${header[0]}${header[2]}`} >
-                                    <p className="" key={key}>{t}</p>
+                                    <ParallaxRight key={key} id={`${header[0]}${header[2]}`} >
+                                    <p className="">{t}</p>
                                     </ParallaxRight>
                                 ))
                             }
@@ -80,8 +80,8 @@ const CardImageOverlay = ({header1, header2, text, img, buttonText, buttonLink, 
                     <p className="text-gray-900 text-sm flex flex-col gap-3">
                         {
                          text.map((t, key) => (
-                            <ParallaxRight id={`${header1[0]}${header2[2]}`} >
-                            <p className="" key={key}>{t}</p>
+                            <ParallaxRight key={key} id={`${header1[0]}${header2[2]}`} >
+                            <p className="">{t}</p>
                             </ParallaxRight>
                         ))
                         }

@@ -2,6 +2,7 @@ import axios from "axios"
 import { useContext, useEffect, useState } from "react"
 import { ClipLoader } from "react-spinners"
 import { AppContext } from "../../assets/Contexts/AppContext"
+import { FormError } from  '../../Components/FormError'
 
 const formatCountdown = (time) =>{
     let minutes = (Math.floor(time/60) % 60)
@@ -11,7 +12,7 @@ const formatCountdown = (time) =>{
     return  minutes + ' : ' + seconds
 }
 
-export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requestSuccessful}) => {
+export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requestSuccessful, organizationEmail, sendVerificationMail}) => {
     const [ error, setError ] = useState('')
     const [ pin, setPin ] = useState('')
     const [ isLoading, setIsLoading ] = useState(false)
@@ -32,7 +33,7 @@ export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requ
         }, [])
 
         useEffect(() => {
-            if(countDown == 0){
+            if(countDown == 0 || countDown < 1){
                 setPin('')
                 deleteRequst()
             }
@@ -46,12 +47,10 @@ export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requ
         
         const verify = (e) => {
             e.preventDefault()
-            if(countDown == 0) {
-                
-            }else{
-                setIsLoading(true)
-                axios.get(`${dbLocation}/requests.php/${userName}/${pin}`).then((r) => {
-                    const response = r.data
+            setIsLoading(true)
+            axios.get(`${dbLocation}/requests.php/${userName}/${pin}`).then((r) => {
+                const response = r.data
+                if(response != false){
                     const currentTime = new Date()
                     const t = response.time
                     const counter = Math.floor((currentTime - new Date(t))/100000
@@ -90,8 +89,12 @@ export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requ
                         })
                     }
                     setIsLoading(false)
-                })
-            }
+                }
+                else if(response == false){
+                    setError('Invalid Pin')
+                }
+            })
+           
     }
 
     return(
@@ -103,17 +106,37 @@ export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requ
                         <div className="flex flex-col w-full">
 
                             <div className="flex w-full rounded-xl overflow-hidden border border-gray-50 shadow-lg">
-                                <i className="bi bi-key-fill bg-blue text-gray-200 p-2"></i>
-                                <input type="text" placeholder="Email" className="p-2 text-sm outline-none w-full" value={pin} onChange={(e) => setPin(e.target.value)}/>
+                                <i className="bi bi-key-fill bg-sec text-gray-200 p-2 h-full"></i>
+                                <input type="number" placeholder="Email verification pin" className="p-2 text-sm outline-none w-full" required value={pin} onChange={(e) => setPin(e.target.value)}/>
                             </div>
                             {
                                 error ?
                                 <FormError message={error}/> : ''
                             }
                         </div>
-                        <div className="flex flex-col text-sm">
+                        <div className="flex flex-col text-sm gap-3 p-2">
+                            {
+                                countDown > 0 ?
+                                <>
+                                    <p>An email containing your verification pin was sent to {organizationEmail}</p>
+                                    <p className='mb-3'>If not seen check your spam folder</p>
+                                </> : ''
+                            }
                             <p className="">{formatCountdown(countDown)}</p>
-                            <div className="font-bold ">Resend Email</div>
+                            {
+                                countDown < 1 ?
+                                <div className="font-bold cursor-pointer text-red-700" onClick={() => {
+                                    sendVerificationMail()
+                                    setTimeout(() => {
+                                        setVerificationStatus(0)
+                                        setTimeout(() => {
+                                            setVerificationStatus(1)
+                                            
+                                        }, 20);
+                                    }, 500);
+
+                                }}>Resend Email</div> : ''
+                            }
                         </div>
                         <button className="bg-blue w-full p-3 text-gray-100 rounded-full flex justify-center items-center gap-1 text-sm" disabled={buttonDisabled}>
                             {

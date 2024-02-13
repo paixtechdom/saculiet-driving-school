@@ -14,6 +14,9 @@ import { Request } from './Pages/Request/Request';
 import { Gallery } from './Pages/Gallery/Gallery';
 import { HelmetProvider } from 'react-helmet-async';
 import { db } from './assets/Constants';
+import { ZoomedImage } from './Components/ZoomedImage';
+import { PictureList } from './Pages/Gallery/PictureList';
+import { VideoList } from './Pages/Gallery/VideoList';
 
 const Layout = () =>{
   const url = document.baseURI
@@ -22,6 +25,9 @@ const Layout = () =>{
   const [ showAlert, setShowAlert ] = useState(false)
   const [ alertType, setAlertType ] = useState('success')
   const [ alertMessage, setAlertMessage ] = useState([])
+  const [ showZoom, setShowZoom ] = useState(false)
+  const [ displayPics, setDisplayPisc ] = useState(true)
+  const [ imageSource, setImageSource ] = useState('')
   const  dbLocation = db
 
 
@@ -33,14 +39,19 @@ const Layout = () =>{
   return(
     <div className='app overflow-hidden'>
       <HelmetProvider>
-        <AppContext.Provider value={{currentNav, setCurrentNav, dbLocation, alertType, setAlertType, alertMessage, setAlertMessage, showAlert, setShowAlert}}> 
+        <AppContext.Provider value={{currentNav, setCurrentNav, dbLocation, alertType, setAlertType, alertMessage, setAlertMessage, showAlert, setShowAlert, showZoom, setShowZoom, imageSource, setImageSource, displayPics, setDisplayPisc }}> 
         <Nav currentNav={currentNav} setCurrentNav={setCurrentNav}/>  
             {
               isLoading ? 
               <Loading /> : 
               <>
                 <Outlet />
+                {
+                  showZoom ?  
+                  <ZoomedImage /> : ''
+                }
                 <Footer />
+
               </>
             }
             <Alert />
@@ -63,6 +74,14 @@ const router = createBrowserRouter([
       {
         path: '/Gallery',
         element: <Gallery /> 
+      },
+      {
+        path: '/Gallery/Pictures',
+        element: <PictureList /> 
+      },
+      {
+        path: '/Gallery/Videos',
+        element: <VideoList /> 
       },
       {
         path: '/request_certificate_verification',

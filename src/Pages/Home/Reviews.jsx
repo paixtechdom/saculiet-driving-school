@@ -60,7 +60,7 @@ export const Reviews = () => {
                         <div className="flex justify-center items-center gap-3 mt-9">
                           {
                             ReviewsData.map((p, key) => (
-                              <p className={`rounded-full cursor-pointer ${currentReview == key ? 'bg-gray-200' : 'border'}`} style={{
+                              <p key={key} className={`rounded-full cursor-pointer ${currentReview == key ? 'bg-gray-200' : 'border'}`} style={{
                                 width: currentReview == key ? 17+'px' : 12+'px',
                                 height: currentReview == key ? 17+'px' : 12+'px'
                               }} 

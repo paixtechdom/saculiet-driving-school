@@ -14,28 +14,34 @@ import  "react-lazy-load-image-component/src/effects/opacity.css"
 
 export const PictureList = ({type}) => {
     const [ images, setImages ] = useState([])
-    const { dbLocation } = useContext(AppContext)
+    const { dbLocation, setShowZoom, setImageSource, setCurrentNav, setDisplayPisc } = useContext(AppContext)
 
     useEffect(() => {
         fetchImages()
+        setCurrentNav(4)
+        setDisplayPisc(true)
+        document.documentElement.scrollTop = 0
     }, [])
 
     const fetchImages = () => {
-        if(type == 'home'){
-            axios.get(`${dbLocation}/images.php/latest/6`).then(function(res){
-                setImages(res.data)
-            })
-        }
-        else{
-            axios.get(`${dbLocation}/images.php`).then(function(res){
-                setImages(res.data)
-            })
+        if(images.length < 1){
+            if(type == 'home'){
+                axios.get(`${dbLocation}/images.php/latest/6`).then(function(res){
+                    setImages(res.data)
+                })
+            }
+            else{
+                axios.get(`${dbLocation}/images.php`).then(function(res){
+                    setImages(res.data)
+                })
+            }
+
         }
     }
 
     return(
         <div className="flex flex-col justify-center items-center w-full text-gray-900 border-t border-b">
-            <div className="flex justify-between w-11/12 flex-col gap-5">
+            <div className="flex justify-between w-11/12 flex-col gap-5 mt-6">
                 <h3 className='w-11/12 text-3xl md:text-4xl text-blue mt-9'>Pictures</h3>
                 {
                     type == 'home'?
@@ -48,8 +54,9 @@ export const PictureList = ({type}) => {
             {
                 React.Children.toArray(
                     images?.map((image) => (
-                        <div  className='overflow-hidden relative left-0 rounded-lg w-full h-full min-h-48 md:h-48 flex-col flex items-center justify-center my-3 md:my-0 border' style={{
-                            // height: 40+'vh'
+                        <div  className='overflow-hidden relative left-0 rounded-lg w-full h-full min-h-48 md:h-48 flex-col flex items-center justify-center my-3 md:my-0 border bg-gray-900' onClick={() => {
+                            setShowZoom(true)
+                            setImageSource(`${dbLocation}/images/${image.fileName}`)
                         }}>
                         <LazyLoadImage 
                              src={`${dbLocation}/images/${image.fileName}`} 
