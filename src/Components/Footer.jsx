@@ -27,7 +27,7 @@ export const Footer = () => {
                     <h3 className="text-gray-200 text-xl font-bold">Quick Links</h3>
                     {
                         NavInfo.map((nav, key) => (
-                            <ParallaxRight key={key} id={nav.title}>
+                            <ParallaxRight key={key} id={nav.title.replaceAll(' ', '')}>
                                 <a href={`#${nav.title}`} className='flex gap-3'>
                                     <i className={`bi bi-${nav.icon}-fill`}></i>
                                     <p className="underline">{nav.title}</p>
@@ -39,11 +39,11 @@ export const Footer = () => {
                 </div>
                 <div className="text-gray-300 flex flex-col items-center text-center">
 
-                    <p className="mt-9 mb-3 ">Read our  
-                    {/* <a href="" className="underline">Privacy policy</a> and */}
-                     <a href="" className="underline ml-2">Terms of service</a></p>
+                    {/* <p className="mt-9 mb-3 ">Read our  
+                    <a href="" className="underline">Privacy policy</a> and
+                     <a href="" className="underline ml-2">Terms of service</a></p> */}
 
-                    <div className="flex flex-col items-center gap-2">
+                    <div className="flex flex-col items-center gap-1 text-sm">
                              <a href={"#Home"} className="text-xl font-bold">Saculiet Driving School</a>
                             <p>&copy; Copyright 2024</p> 
                     </div>

@@ -7,11 +7,11 @@ export const Values = () => {
         <div className="flex justify-center items-center w-full text-gray-900 py-9" style={{
             // marginTop: -20+'vh'
         }}>
-            <div className="flex justify-center xl:w-9/12 w-11/12 items-center transition-all duration-1000 gap-2 md:grid md:grid-cols-3 sm:flex-col flex-col z-50">
+            <div className="flex justify-center xl:w-9/12 w-11/12 items-center transition-all duration-1000 gap-7 md:grid md:grid-cols-3 sm:flex-col flex-col z-50 items-stretch">
 
                 {
                     AfterHeroContent.map((content, key)  =>(
-                        <div  key={key} className='overflow-hidden relative p-3 left-0 rounded-xl'>
+                        <div  key={key} className='overflow-hidden relative p-3 left-0 rounded-xl shadow-xl'>
                                 <AnimatedBorder />
                                 <div className='flex flex-col gap-2 m-3 items-center text-center'>
                             <ParallaxRight id={`${content.title[2]}${content.title[0]}`}>

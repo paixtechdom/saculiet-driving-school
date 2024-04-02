@@ -8,14 +8,14 @@ export const ZoomedImage = () => {
     const { setShowZoom, imageSource} = useContext(AppContext)
     return(
         <div className="bg-black fixed top-0 h-screen w-full flex justify-center items-center" style={{
-            zIndex: 503
+            zIndex: 507
         }}>
             <p className="fixed rounded-full bg-gray-700 top-0 left-0 flex justify-center items-center text-white m-2 p-2 px-3 text-xl cursor-pointer" onClick={()=>  {
                 setShowZoom(false)
             }} style={{
                 height: 40+'px',
                 width: 40+'px',
-                zIndex: 504
+                zIndex: 507
             }}><i className="bi bi-x-lg"></i></p>
 
              <LazyLoadImage 

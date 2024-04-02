@@ -81,8 +81,8 @@ export const UploadDocument = ({organizationName, organizationEmail, requestId, 
         <div className="flex flex-col flex items-center justify-  min-h-screen mt-9 mx-3">
         <div className="flex flex-col my-9 gap-3 items-center">
             <h3 className="text-center text-xl">Upload A Legal Document to Verify the Indentity of Your Organization</h3>
-            <p className="flex gap-3 text-sm text-center">
-                <i className="bi bi-exclamation-circle-fill text-blue"></i>
+            <p className="flex gap-3 text-sm text-center text-red-800">
+                <i className="bi bi-exclamation-circle-fill"></i>
                 Only PDF files are supported
             </p>
         </div>

@@ -84,12 +84,19 @@ const router = createBrowserRouter([
         element: <VideoList /> 
       },
       {
-        path: '/request_certificate_verification',
+        path: '/certificate_verification',
         element: <Request /> 
       },
       {
         path: '/*',
-        element: <div className='pt-9 m-9 '>Page not found <Link className='mt-9 text-black' to='/'>go to home page</Link></div>
+        element: <div className='mt-9 w-full bg-gray-200 flex flex-col items-center justify-center h-96'>
+        <i className="bi bi-exclamation-circle-fill text-5xl text-blue mb-3"></i>
+        <p className="text-xl">
+          Page not found 
+        </p>
+
+        <Link className='mt-9 text-white bg-blue p-3 text-sm px-8 rounded-xl ' to='/'>HOME PAGE</Link>
+      </div>
       }
     ]
   }

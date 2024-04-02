@@ -51,7 +51,7 @@ export const VideoList = ({type}) => {
 
     return(
         <div className="flex flex-col justify-center items-center w-full text-gray-900 border-t border-b">
-        <div className="flex justify-between w-11/12 flex-col gap-5 mt-6">
+        <div className="flex justify-between w-11/12 md:w-9/12 flex-col gap-5 mt-6">
             <h3 className='w-11/12 text-3xl md:text-4xl text-blue mt-9'>Videos</h3>
             {
                 type == 'home'?

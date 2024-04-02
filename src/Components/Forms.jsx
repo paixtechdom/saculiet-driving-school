@@ -60,7 +60,14 @@ const ContactForm = () => {
     const [ messageError, setMessageError ] = useState(false) 
     const [ isLoading, setIsLoading ] = useState(false) 
     const { setShowAlert, setAlertType, setAlertMessage, dbLocation } = useContext(AppContext)
+    
+    const isError = () => {
+          setShowAlert(true)
+          setAlertType('error')
+          setIsLoading(false)
+          setAlertMessage(['Error sending message'])
 
+      }
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
@@ -81,44 +88,48 @@ const ContactForm = () => {
             setNameError(false)
             const subject = 'Message from ' + name + ' to Saculiet Driving School'
 
-            sendContactEmail('customerservice@saculietdrivingschool.com', subject, message, email)
-
+            sendContactEmail(subject, message, email, name)
+         
            
 
            
      }
     }
-    const sendContactEmail = (email, subject, message, from ) => {
+    const sendContactEmail = (subject, message, email, name ) => {
         const newMessage = message.replaceAll(/\n/g, '<br>')
 
         axios.post(`${dbLocation}/contactEmail.php/` ,{
-            to: email,
             subject: subject,
             message: newMessage,
-            from: from,
+            from: email,
+            name: name,
           }, {
             headers: {
               'Content-Type': 'application/json',
             },
           })
           .then(response => {
-            setShowAlert(true)
-            setAlertType('success')
-            setIsLoading(false)
-            setAlertMessage(['Message Sent successfully'])
-            // setName('')
-            // setEmail('')
-            // setMessage('')
+            console.log(response)
+            if(response.data.success == true){
+                setShowAlert(true)
+                setAlertType('success')
+                setIsLoading(false)
+                setAlertMessage(['Message Sent successfully'])
+                setName('')
+                setEmail('')
+                setMessage('')
+                
+            }else{
+                isError()
+
+            }
         })
         .catch(error => {
-                setShowAlert(true)
-                setAlertType('error')
-                setIsLoading(false)
-                setAlertMessage(['Error sending message'])
-            });
-    
-          
-      }
+            isError()
+        });
+        
+        
+    }
 
 
 
@@ -147,14 +158,14 @@ const ContactForm = () => {
                     }
                     {
                         Emails.map((email, key) => (
-                            <ParallaxRight key={key} id={`${email.icon}`}>
+                            <ParallaxRight key={key} id={`${email.title.replaceAll(' ', '')}`}>
 
                                 <a  href={`${email.link}`}
                                 className="flex gap-4">
                                         <i className={`bi bi-${email.icon} text-lg text-gray-300 text-2xl`}></i>
                                     <div className="flex flex-col w-full gap-1"> 
                                         <h3 className="text-lg">{email.title}</h3>
-                                        <a className="truncate" href={`mailto:${email.text}`}>{email.text}</a>
+                                        <a className="truncate text-sm" href={`mailto:${email.text}`}>{email.text}</a>
                                         
                                     </div>
                                 </a>
@@ -163,9 +174,15 @@ const ContactForm = () => {
                     }
                    
                 </div>
-                <form className="flex justify-between w-full items-center transition-all duration-500 gap-3 flex-col h-full md:w-full bg-blue-30" onSubmit={handleSubmit}>
+
+
+                <form className="contact flex justify-start w-full items-center transition-all duration-500 gap-3 flex-col h-full md:w-full bg-blue-30" onSubmit={handleSubmit}>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2590727079746!2d3.3437315749937304!3d6.614700193379383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d50a6b315c9%3A0x6b09a379ce620c75!2sSaculiet%20Driving%20School%20and%20Logistics!5e0!3m2!1sen!2sus!4v1709603258704!5m2!1sen!2sus" className="border border-0 w-full h-96 rounded-xl outline-none" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
                     <div className="w-full ">
-                        <h2 className="text-2xl text-gray-300">Send us a message</h2>
+                        <h2 className="text-2xl text-gray-200">Send us a message</h2>
                     </div>
                     <ParallaxRight clas='w-full' id='name'>
                         <div className="flex border w-full rounded-lg overflow-hidden">
@@ -214,9 +231,9 @@ const ContactForm = () => {
                         }}
                         onMouseOut={() =>{
                             setScale(1)
-                        }}>
+                        }} onClick={!isLoading ? handleSubmit : ''}>
 
-                            <input type="submit" placeholder="Name" className="bg-transparent p-2" value={isLoading ? 'SENDING' : 'SEND MESSAGE'}/>
+                            <input type="submit" placeholder="Name" className="bg-transparent p-2 text-gray-300" value={isLoading ? 'SENDING' : 'SEND MESSAGE'}/>
                             {
                                 isLoading ? 
                                 <ClipLoader color='white' size={15}/> : 

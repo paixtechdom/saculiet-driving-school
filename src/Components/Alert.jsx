@@ -7,9 +7,9 @@ export const Alert = () => {
         return( 
             <div className={`flex items-center justify-center fixed top-0 w-full h-screen z-100`} style={{
                 backgroundColor: 'rgba(225, 225, 225, 0.6)',
-                zIndex: 401
+                zIndex: 507
             }}>
-                <div className={`w-9/12 md:w-9/12 xl:w-6/12  min-h-64 bg-gray-50 shadow-xl rounded-3xl flex items-center justify-center flex-col gap-4 py-7 px-6 alert`}>
+                <div className={`w-11/12 md:w-9/12 xl:w-6/12  min-h-64 bg-gray-50 shadow-xl rounded-3xl flex items-center justify-center flex-col gap-4 py-7 px-6 alert`}>
                     <i className={`bi bi-${
                         alertType == 'success' ? 'check' :
                         alertType == 'cancelled' ? 'x-lg' :

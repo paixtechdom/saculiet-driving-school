@@ -28,22 +28,22 @@ export const Hero = () => {
       <>
           <div className=" w-full h-full flex items-center justify-center bg-white overflow-hidden relative pt-9 md:pt-0 flex-col">
           <div className="pt-9 w-full"></div>
-              <div className="absolute top-0 right-0 bg-blue h-90 w-full" style={{
-              }}>
+              <div className="absolute top-0 right-0 bg-blue h-90 w-full">
                 <div className="absolute bg-white z-10 w-full h-2/5 bottom-0" style={{
                   width: 120+'%',
-                  transform: 'rotate(355deg) translateY(60px) translateX(-20px)'
+                  transform: 'rotate(355deg) translateY(80px) translateX(-20px)',
+
                 }}>
                   
                 </div>
-                <div className="absolute bg-white z-10 w-full h-1/5 bottom-0" style={{
+                {/* <div className="absolute bg-white z-10 w-full h-1/5 bottom-0" style={{
                   width: 10+'%',
                   transform: 'translateY(0px)'
                 }}></div>
                 <div className="absolute right-0 bg-blue bg-blue-200 z-10 w-full h-1/5 bottom-0" style={{
                   width: 10+'%',
                   transform: 'translateY(-185%) translateX(30px)'
-                }}></div>
+                }}></div> */}
               </div>
           <div className=" xl:w-9/12 w-11/12  flex flex-col items-center justify-between md:flex-row z-10 pt-9 md:pt-0">
             <Parallax id='heroText'>

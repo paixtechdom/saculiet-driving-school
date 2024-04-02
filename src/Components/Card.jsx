@@ -57,45 +57,47 @@ const Card = ({header, text, img, buttonText, buttonLink, clas, w, buttonIcon, g
     )
 }
 
-const CardImageOverlay = ({header1, header2, text, img, buttonText, buttonLink, w, buttonIcon, goTo, id}) => {
+const CardImageOverlay = ({header1, header2, text, img, img2, buttonText, buttonLink, w, buttonIcon, goTo, id}) => {
     return(
-        <div id={id} className="flex justify-center items-center w-full text-gray-200 py-9 h-96 relative">
+        <div id={id} className="flex justify-center items-center w-full text-gray-200 py-9 min-h-96 relative">
             <div className="absolute h-full w-full flex items-center justify-center overflow-hidden" style={{
             }}>
-                <img src={img} alt={header1 ? header1 : text}         className='absolute z-0 scale-15 h-full w-full md:scale-100 md:h-fit md:w-full'/>
+                <img src={img} alt={header1 ? header1 : text}         className='absolute z-0 scale-15 h-full w-full md:scale-100 md:h-fit md:w-full hidden md:block'/>
+
+                <img src={img2} alt={header1 ? header1 : text}         className='absolute z-0 scale-15 h-full w-full md:scale-100 md:h-fit md:w-full md:hidden'/>
             </div>
 
             <div className={`flex xl:w-9/12 w-11/12  items-center h-full z-10`}>
 
-                <div className="flex flex-col md:gap-5 gap-3 items-center text-center md:items-start md:text-left z-10 p-5" style={{
-                    backgroundColor: 'rgba(225, 225, 225, .9)'
+                <div className="flex flex-col md:gap-5 gap-3 items-center text-center md:items-start md:text-left z-10 p-3 md:p-9" style={{
+                    backgroundColor: 'rgba(225, 225, 225, .95)'
                 }}>
                 <Parallax id={`${header1[2]}${text[0][0]}`}>
                     <h2 className="text-3xl md:text-5xl text-sec font-bold" style={{
                         // textShadow: '0px 0px 0px rgba(225, 225, 225, 0.7)'
                     }}> <span className="text-blue">{header1}</span> <span className="text-sec">{header2}</span>
                     </h2>
-                    </Parallax>
-                    <ParallaxRight id={`${header1[2]}${text[0][2]}`}>
-                    <p className="text-gray-900 text-sm flex flex-col gap-3">
-                        {
-                         text.map((t, key) => (
-                            <ParallaxRight key={key} id={`${header1[0]}${header2[2]}`} >
-                            <p className="">{t}</p>
-                            </ParallaxRight>
-                        ))
-                        }
-                        </p>
-                        </ParallaxRight>
-                    <Parallax id={`${header1[2]}${text[0][1]}`}>
+                </Parallax>
+                <ParallaxRight id={`${header1[2]}${text[0][2]}`}>
+                <p className="text-gray-900 text-sm flex flex-col gap-3">
                     {
-                        buttonText ? 
-                        
-                        <a href={`#${buttonLink}`}>
-                            <SecondaryButton text={buttonText} icon={!buttonIcon == '' ? buttonIcon :'arrow-right'}/>
-                        </a> : ''
-                        
+                        text.map((t, key) => (
+                        <ParallaxRight key={key} id={`${header1[0]}${header2[2]}`} >
+                        <p className="">{t}</p>
+                        </ParallaxRight>
+                    ))
                     }
+                    </p>
+                    </ParallaxRight>
+                <Parallax id={`${header1[2]}${text[0][1]}`}>
+                {
+                    buttonText ? 
+                    
+                    <a href={`#${buttonLink}`}>
+                        <SecondaryButton text={buttonText} icon={!buttonIcon == '' ? buttonIcon :'arrow-right'}/>
+                    </a> : ''
+                    
+                }
                 </Parallax>
                 </div>
             </div>

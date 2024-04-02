@@ -46,10 +46,10 @@ export const Nav = ({currentNav, setCurrentNav}) => {
                 <div className="md:hidden" onClick={()=> setDropDownPos(dropdownPos == 0 ? -100 : 0)}>
                     <i className={`bi bi-${dropdownPos == 0 ? 'x-lg' : 'justify'} text-gray-900 text-2xl cursor-pointer`}></i>
                 </div>
-
+ 
             </div>
             <div className={`flex gap-8 absolute 
-            top-9 p-5 transition-all duration-1000 flex-col bg-white w-full mt-6 ${dropdownPos == 0 ? 'left-0' : '-left-100'}
+            top-9 p-5 pb-6 transition-all duration-1000 flex-col bg-white w-full mt-3 ${dropdownPos == 0 ? 'left-0' : '-left-100'}
             md:flex-row md:flex md:relative md:p-0 md:mt-0 md:top-0 md:w-fit md:bg-transparent md:left-0 md:items-center`} style={{
                 // left: dropdownPos+'%',
             }}>

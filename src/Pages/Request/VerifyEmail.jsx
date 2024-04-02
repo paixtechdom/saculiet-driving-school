@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react"
 import { ClipLoader } from "react-spinners"
 import { AppContext } from "../../assets/Contexts/AppContext"
 import { FormError } from  '../../Components/FormError'
+import { FormLabel } from "../../Components/FormLabel"
 
 const formatCountdown = (time) =>{
     let minutes = (Math.floor(time/60) % 60)
@@ -12,13 +13,13 @@ const formatCountdown = (time) =>{
     return  minutes + ' : ' + seconds
 }
 
-export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requestSuccessful, organizationEmail, sendVerificationMail}) => {
+export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requestSuccessful, organizationEmail, sendVerificationMail, requestId}) => {
     const [ error, setError ] = useState('')
     const [ pin, setPin ] = useState('')
     const [ isLoading, setIsLoading ] = useState(false)
     const [ buttonDisabled, setButtonDisabled ] = useState(false)
     const [ request, setRequest ] = useState({})
-    const [ countDown, setCountDown ]  = useState(60)
+    const [ countDown, setCountDown ]  = useState(180)
 
 
     const { dbLocation } = useContext(AppContext)
@@ -34,13 +35,13 @@ export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requ
 
         useEffect(() => {
             if(countDown == 0 || countDown < 1){
-                setPin('')
                 deleteRequst()
             }
         }, [countDown])
         
         const deleteRequst = () => {
-            axios.post(`${dbLocation}/requests.php/${userName}/${pin}/emailVerificationPin`).then((response) => {
+            setPin('')
+            axios.post(`${dbLocation}/requests.php/${userName}/-timeout-/emailVerificationPin`).then((response) => {
             })
 
         }
@@ -60,7 +61,7 @@ export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requ
                         setButtonDisabled(true)
                     }
                     else{
-                        axios.get(`${dbLocation}/organizations.php/${response.name}/get`).then(re => {
+                        axios.get(`${dbLocation}/organizations.php/${response.name}/${response.email}`).then(re => {
                             const resp = JSON.parse(JSON.stringify(re))
                             const res = resp.data
                             if(res === false){
@@ -68,22 +69,25 @@ export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requ
                                     name: response.name,
                                     email: response.email,
                                     location: response.location
-                                }).then((res) => 
-                                    {
+                                }).then(() =>                                 
+                                {
+                                        addOrgId(response.name, response.email, response.id)
                                         setVerificationStatus(2)
                                         setRequestId(response.id)
                                     }
+                                    
                                     )
                                 }
                                 else{
+                                    addOrgId(response.name, response.email, response.id)
                                     if(res.document == null || res.document.length < 2){
                                         setRequestId(response.id)
                                         setVerificationStatus(2)
-                               }
-                               else if (res.document !== null && res.document.length > 2 && res.documentType !== null && res.documentType.length > 2 ){
-                                   axios.post(`${dbLocation}/requests.php/pending/${response.id}`)
-                                   requestSuccessful()
-                                }
+                                    }
+                                    else if (res.document !== null && res.document.length > 2 && res.documentType !== null && res.documentType.length > 2 ){
+                                        axios.post(`${dbLocation}/requests.php/pending/${response.id}`)
+                                        requestSuccessful()
+                                        }
 
                             }
                         })
@@ -92,22 +96,31 @@ export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requ
                 }
                 else if(response == false){
                     setError('Invalid Pin')
+                    setIsLoading(false)
                 }
             })
            
     }
 
+    const addOrgId = (name, email, id) => {
+        axios.get(`${dbLocation}/organizations.php/${name}/${email}`)
+        .then(response => {
+                axios.post(`${dbLocation}/requests.php/${response.data.id}/${id}/organizationId`)
+            })
+
+    }
+
     return(
-        <form action="" className="flex justify-center align-center flex-col my-9 gap-6 border border-gray-50 shadow-xl p-5 rounded-xl" 
+        <form action="" className="w-full flex justify-center align-center flex-col my-9 gap-6 border border-blue shadow-xl rounded-xl lg:w-7/12 transition-all duration-500 p-4 py-9" 
                     onSubmit={(e) => verify(e)}
                     >
 
 
                         <div className="flex flex-col w-full">
-
-                            <div className="flex w-full rounded-xl overflow-hidden border border-gray-50 shadow-lg">
+                            {/* <FormLabel text={'Email Verification Pin'} icon={'key-fill'}/> */}
+                            <div className="flex w-full overflow-hidden  border-bottom-primary">
                                 <i className="bi bi-key-fill bg-sec text-gray-200 p-2 h-full"></i>
-                                <input type="number" placeholder="Email verification pin" className="p-2 text-sm outline-none w-full" required value={pin} onChange={(e) => setPin(e.target.value)}/>
+                                <input type="number" placeholder="Pin" className="p-2 text-sm outline-none bg-gray-50 w-full px-4" required value={pin} onChange={(e) => setPin(e.target.value)}/>
                             </div>
                             {
                                 error ?
@@ -118,11 +131,11 @@ export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requ
                             {
                                 countDown > 0 ?
                                 <>
-                                    <p>An email containing your verification pin was sent to {organizationEmail}</p>
+                                    <p>An email containing your verification pin was sent to <b>{organizationEmail}</b> </p>
                                     <p className='mb-3'>If not seen check your spam folder</p>
                                 </> : ''
                             }
-                            <p className="">{formatCountdown(countDown)}</p>
+                            <p className="text-gray-700">{formatCountdown(countDown)}</p>
                             {
                                 countDown < 1 ?
                                 <div className="font-bold cursor-pointer text-red-700" onClick={() => {

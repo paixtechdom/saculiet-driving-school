@@ -25,7 +25,7 @@ export const Reviews = () => {
     return(
         <div id='reviews' className="flex flex-col justify-center items-center w-full text-gray-900 py-9 border-t border-b bg-blue mt-9">
         <div className="justify-center xl:w-9/12 w-11/12 items-center transition-all duration-500 flex flex-col text-gray-200  gap-y-9 ">
-        <h2 className="text-2xl w-full">What people say about us</h2>
+        <h2 className="text-2xl w-full text-center ">WHAT PEOPLE SAY ABOUT US</h2>
         <div className="w-full overflow-hidde">
             <Parallax id={'review'}>
                 <div className="flex items-cente justify-between bg-blue-90 transition-all duration-500" style={{
@@ -37,7 +37,7 @@ export const Reviews = () => {
                             <div key={key} className="flex w-full justify-center items-center text-center" style={{
                               width: 100+'%'  
                             }}>
-                                <div className="w-10/12 md:w-5/12 flex flex-col justify-center items-center gap-1">
+                                <div className="w-11/12 md:w-8/12 flex flex-col justify-center items-center gap-1">
 
                                 <p className="text-lg">{review.name}</p>
                                 <div className="flex gap-3 items-center text-yellow-500 text-sm">

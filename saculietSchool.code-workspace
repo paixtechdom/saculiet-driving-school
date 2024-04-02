@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../../../../../xamp/htdocs/saculietAPI"
+		},
+		{
+			"path": "../prototype-saculiet-students"
 		}
 	],
 	"settings": {}

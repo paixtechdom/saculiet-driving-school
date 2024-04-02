@@ -42,7 +42,7 @@ const No = ({no}) => {
     }, [newNo])
 
     const read = () => {
-        setNewNo(newNo == no.no ? no.no : newNo + 1)
+        setNewNo(newNo == no.no ? no.no : newNo + no.interval)
     }
     return(
         <div className='overflow-hidden relative left-0 rounded-xl w-full flex-col flex items-center justify-center gap-1'>

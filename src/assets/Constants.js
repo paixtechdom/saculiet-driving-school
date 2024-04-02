@@ -9,8 +9,9 @@ import trainingPic from './images/images (19).jpeg'
 const Logo  = logo;
 const LogoText  = logoText;
 
-const  db = 'https://saculietdrivingschool.com/saculietAPI'
-// const  db = 'http://localhost:80/saculietAPI'
+// const  db = '/saculietAPI';
+// const  db = 'https://saculietdrivingschool.com/saculietAPI'
+const  db = 'http://localhost:80/saculietAPI'
 
 
 
@@ -52,7 +53,7 @@ const CarouselItems = [
     {
         img: 'lightning-fill',
         title: 'Empowerment',
-        content: 'Our commitment encompasses confidence-building, independence, and a profound understanding of responsible road behavior. Join us to experience the transformative power of driving with confidence and capability'
+        content: 'Our commitment encompasses confidence-building and independence,  a profound understanding of responsible road behavior.'
     }
 ]
 
@@ -85,7 +86,7 @@ const NavInfo = [
     {
         title: 'Certificate Verification',
         icon: 'award',
-        link: 'request_certificate_verification'
+        link: 'certificate_verification'
     },
 ]
 
@@ -93,14 +94,14 @@ const SocialMediaInfo = [
     {
         title: 'Address',
         icon: 'geo-fill',
-        text: 'NO 16 & 17C, Suite 128 Abiodun Jagun Street, Jeho Shamah Plaza Ogba Ikeja Lagos',
+        text: 'NO 16 & 17C, Suite 128 Abiodun, Jagun Street, Jeho Shamah Plaza, Ogba, Ikeja, Lagos',
         link: ''
     },
     {   
         title: 'Call',
-        icon: 'telephone',
-        link: 'tel:+23409163268225',
-        text: '+23409163268225'
+        icon: 'telephone-fill',
+        link: 'tel:+2349163268225',
+        text: '+2349163268225'
     },
     {
         title: 'Whatsapp',
@@ -108,41 +109,47 @@ const SocialMediaInfo = [
         link: 'https://api.whatsapp.com/send?phone=2347057949759',
         text: '+2347057949759'
     },
+    {  
+        title: 'Customer Service',
+        icon: 'telephone-fill',
+        link: 'tel:+2349065823571',
+        text: '+2349065823571'
+    },
 ]
 const Emails = [
     {
         title: 'Customer Service',
-        icon: 'envelope',
+        icon: 'envelope-fill',
         link: 'mailto:customerservice@saculietdrivingschool.com',
         text: 'customerservice@saculietdrivingschool.com'
     },
     {
         title: 'Business Development',
-        icon: 'envelope',
+        icon: 'envelope-fill',
         link: 'mailto:businessdevelopment@saculietdrivingschool.com',
         text: 'businessdevelopment@saculietdrivingschool.com'
     },
     {
         title: 'Transport and Logistics',
-        icon: 'envelope',
+        icon: 'envelope-fill',
         link: 'mailto:transportandlogistics@saculietdrivingschool.com',
         text: 'transportandlogistics@saculietdrivingschool.com'
     },
     {
         title: 'Training Department',
-        icon: 'envelope',
+        icon: 'envelope-fill',
         link: 'mailto:trainingdepartment@saculietdrivingschool.com',
         text: 'trainingdepartment@saculietdrivingschool.com'
     },
     {
         title: 'Elizabeth Funmilayo',
-        icon: 'envelope',
+        icon: 'envelope-fill',
         link: 'mailto:elizabethfunmilayo@saculietdrivingschool.com',
         text: 'elizabethfunmilayo@saculietdrivingschool.com'
     },
     {
         title: 'Mr Onido',
-        icon: 'envelope',
+        icon: 'envelope-fill',
         link: 'mailto:onido@saculietdrivingschool.com',
         text: 'onido@saculietdrivingschool.com'
     },
@@ -260,21 +267,25 @@ const Nos = [
     {
         title: 'Trained Students',
         no: '5000',
+        interval: 50,
         icon: 'people'
     },
     {
         title: 'Training Sessions',
         no: '200',
+        interval: 2,
         icon: 'clock-history'
     },
     {
         title: 'Tutors',
         no: '15',
+        interval: 1,
         icon: 'person'
     },
     {
         title: 'Satisfied Clients',
         no: '200',
+        interval: 2,
         icon: 'person-check'
     },
     // {

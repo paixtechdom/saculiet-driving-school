@@ -21,9 +21,8 @@ const sendVerificationEmail = (email, subject, text, from, UserName) => {
       
   }
 
-const notifyAdminEmail = (email, subject, organizationName, link, firstname, lastname ) => {
+const notifyAdminEmail = (subject, organizationName, link, firstname, lastname ) => {
     axios.post(`${db}/notifyAdmin.php/` ,{
-        to: email,
         subject: subject,
         firstName: firstname,
         lastName: lastname,

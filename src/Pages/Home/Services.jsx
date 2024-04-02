@@ -27,13 +27,19 @@ export const Services = () => {
     return(
         <div id='Services' className=" flex flex-col justify-center items-center w-full text-gray-900 py-9 my-9">
             <div className="flex justify-center xl:w-9/12 w-11/12 items-cente transition-all duration-500 gap-5 flex-col">
-            <h3 className='w-full text-3xl md:text-4xl text-bluek'>Our Services</h3>
+            <h3 className='w-full text-3xl md:text-4xl text-blue'>Our Services</h3>
                 <ParallaxRight id='serviceNav'>
-                    <div className="flex w-full justify-between border border-gray-300 shadow-lg rounded-lg">
+                    <div className="flex w-full justify-between shadow-lg rounded-lg overflow-hidden">
 
                         {
                         ServicesRendered.map((service, key)  =>(
-                                <button key={key} className={`flex items-center justify-center p-2 md:p-3 px-4 rounded-lg transition-all duration-500 ${currentService == key ? 'bg-blue-sec text-white' : '' }`} onClick={() => {setCurrentService(key)}}>
+                                <button key={key} className={`flex items-center justify-center p-2 text-sm md:text-lg md:p-3 px- rounded- transition-all duration-500 ${
+                                    currentService == key ?'border-bottom-sec text-gray-500' 
+                                   : ''
+                                
+                                }`} 
+                                    
+                                    onClick={() => {setCurrentService(key)}}>
                                     {service.section}
                                 </button> 
                             )) 
@@ -50,11 +56,11 @@ export const Services = () => {
                             ServicesRendered.map((service, key) => (
                                 <div key={key} className="flex w-full jistify-start flex-col md:flex-row items-start gap-9" style={{
                                 }}>
-                                    <div className="flex flex-col w-full gap-4">
+                                    <div className="flex flex-col w-full gap-4 pr-4">
                                         {
                                             service.services.map((ser, key) => (
                                                 <div key={key} className="flex gap-2 items-center">                        <i className="bi bi-check2-circle text-xl text-sec"></i>
-                                                <p className="text-sm">{ser.title}</p>
+                                                <p className="text-sm whitespace-normal break-words">{ser.title}</p>
                                                 </div>
                                             ))
                                         }
