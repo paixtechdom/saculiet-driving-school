@@ -45,7 +45,7 @@ export const Footer = () => {
 
                     <div className="flex flex-col items-center gap-1 text-sm">
                              <a href={"#Home"} className="text-xl font-bold">Saculiet Driving School</a>
-                            <p>&copy; Copyright 2024</p> 
+                            <p>&copy; Copyright {new Date().getFullYear()}</p> 
                     </div>
                 </div>
             </div>
