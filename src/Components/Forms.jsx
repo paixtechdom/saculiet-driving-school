@@ -144,7 +144,7 @@ const ContactForm = () => {
                             <ParallaxRight key={key} id={`${media.icon}`}>
 
                                 <a  key={key} href={`${media.link}`}
-                                className="flex gap-4">
+                                className={`flex gap-4 ${media.icon === 'sssss' ? '-mt-6 ml-5' : ''}`}>
                                         <i className={`bi bi-${media.icon} text-lg text-gray-300 text-2xl`}></i>
                                     <div className="flex flex-col w-full gap-1"> 
                                         <h3 className="text-lg">{media.title}</h3>

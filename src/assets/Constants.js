@@ -10,8 +10,8 @@ const Logo  = logo;
 const LogoText  = logoText;
 
 // const  db = '/saculietAPI';
-// const  db = 'https://saculietdrivingschool.com/saculietAPI'
-const  db = 'http://localhost:80/saculietAPI'
+const  db = 'https://saculietdrivingschool.com/saculietAPI'
+// const  db = 'http://localhost:80/saculietAPI'
 
 
 
@@ -97,23 +97,23 @@ const SocialMediaInfo = [
         text: 'NO 16 & 17C, Suite 128 Abiodun, Jagun Street, Jeho Shamah Plaza, Ogba, Ikeja, Lagos',
         link: ''
     },
-    {   
-        title: 'Call',
+    {  
+        title: 'Customer Service',
         icon: 'telephone-fill',
         link: 'tel:+2349163268225',
         text: '+2349163268225'
     },
+    {   
+        title: '',
+        icon: 'sssss',
+        link: 'tel:+2349065823571',
+        text: '+2349065823571'
+    },
     {
         title: 'Whatsapp',
         icon: 'whatsapp',
-        link: 'https://api.whatsapp.com/send?phone=2347057949759',
-        text: '+2347057949759'
-    },
-    {  
-        title: 'Customer Service',
-        icon: 'telephone-fill',
-        link: 'tel:+2349065823571',
-        text: '+2349065823571'
+        link: 'https://api.whatsapp.com/send?phone=2349163268225',
+        text: '+2349163268225'
     },
 ]
 const Emails = [

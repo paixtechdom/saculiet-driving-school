@@ -4,6 +4,7 @@ import { AppContext } from "../../assets/Contexts/AppContext"
 import car from "../../assets/images/IMG_20200210_095940.jpg"
 import about from "../../assets/images/gettyimages-1335863186-612x612.jpg"
 import why from "../../assets/images/gettyimages-813079014-612x612.jpg"
+import award from "../../assets/images/award.jpg"
 import international from "../../assets/images/gettyimages-78465904-612x612.jpg"
 import trailer from "../../assets/images/trailer.jpg"
 import { useEffect } from "react"
@@ -36,7 +37,7 @@ export const Home = () => {
      
           <Values />
           <div className="section">
-            <Card id={'About'} header={'About Saculiet Driving School'} text={['An accredited driving training institute approved by FRSC, where we impart the art of driving and instill the paramount importance of safe driving', ' Our mission is to not only save lives and protect properties but also to nurture individuals into professionals confidently navigating the roads with their own steering mastery.', 'Give us a try today and testify']} buttonText={'GET STARTED'} buttonLink={'Contact'} img={`${dbLocation}/images/IMG-20240131-WA0009.jpg`} buttonIcon={'arrow-down'}/>
+            <Card id={'award'} header={'About Saculiet Driving School'} text={['An accredited driving training institute approved by FRSC, where we impart the art of driving and instill the paramount importance of safe driving', ' Our mission is to not only save lives and protect properties but also to nurture individuals into professionals confidently navigating the roads with their own steering mastery.', 'Give us a try today and testify']} buttonText={'GET STARTED'} buttonLink={'Contact'} img={`${dbLocation}/images/IMG-20240131-WA0009.jpg`} buttonIcon={'arrow-down'}/>
           </div>
           <Numbers />
 
@@ -48,6 +49,8 @@ export const Home = () => {
 
           <Services />
           </div>
+          <Card id={'About'} header={'Top Driving School of The Year'} text={['Saculiet Nigeria Enterprises as the Top Driving School of the Year in Lagos State', 'TNNBP AWARD: Top Notch Nigeria Business & Professional Award', 'We are dedicated to transforming students into professionals, instilling confidence and competence for a lifetime of safe and enjoyable driving experiences']} buttonText={'GET STARTED'} buttonLink={'Contact'} img={award} buttonIcon={'arrow-down'}/>
+
           <Reviews />
           <Card header={'Book a training session now'} text={['Get started by booking a training session', 'Adult Lessons', 'Private Lessons', 'Teens Lessons']} buttonText={'GET STARTED'} buttonLink={'Contact'} img={car} buttonIcon={'arrow-down'}/>
 
