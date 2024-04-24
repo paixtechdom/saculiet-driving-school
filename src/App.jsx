@@ -40,7 +40,7 @@ const Layout = () =>{
     <div className='app overflow-hidden'>
       <HelmetProvider>
         <AppContext.Provider value={{currentNav, setCurrentNav, dbLocation, alertType, setAlertType, alertMessage, setAlertMessage, showAlert, setShowAlert, showZoom, setShowZoom, imageSource, setImageSource, displayPics, setDisplayPisc }}> 
-        <Nav currentNav={currentNav} setCurrentNav={setCurrentNav}/>  
+        <Nav />  
             {
               isLoading ? 
               <Loading /> : 

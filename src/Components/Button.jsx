@@ -18,7 +18,7 @@ const PrimaryButton = ({icon, text, clas, btnClas}) => {
                 text ?
                 <div className='text-gray-100 px-3'>{text.toUpperCase()}</div> : ''
             }
-            <i className={`bi bi-${icon} text-white bg-sec rounded-full flex items-center justify-center ${clas ? clas : icon == 'arrow-down' ? 'updown' : 'slidetofro'} ${icon == 'chevron-down' ? 'updown' : icon == 'chevron-up' ?  'downUp' : ''}`} style={{
+            <i className={`bi bi-${icon} text-black bg-white rounded-full flex items-center justify-center ${clas ? clas : icon == 'arrow-down' ? 'updown' : 'slidetofro'} ${icon == 'chevron-down' ? 'updown' : icon == 'chevron-up' ?  'downUp' : ''}`} style={{
                 height: 30+'px',
                 width: 30+'px',
             }}></i>
@@ -38,7 +38,7 @@ const SecondaryButton = ({icon, text, clas }) => {
             setScale(1)
         }}>
             <div className='text-gray-300 px-3 '>{text.toUpperCase()}</div>
-            <i className={`bi bi-${icon} text-gray-300 flex items-center justify-center bg-sec rounded-full ${clas ? clas : icon == 'arrow-down' ? 'updown' : 'slidetofro'}`} style={{
+            <i className={`bi bi-${icon} text-black flex items-center justify-center bg-white rounded-full ${clas ? clas : icon == 'arrow-down' ? 'updown' : 'slidetofro'}`} style={{
                 height: 30+'px',
                 width: 30+'px',
             }}></i>

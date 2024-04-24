@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { LogoText, Logo, NavInfo } from "../assets/Constants"
 import { PrimaryButton } from "./Button"
 import { Parallax } from "./Parallax"
-export const Nav = ({currentNav, setCurrentNav}) => {
+import { AppContext } from "../assets/Contexts/AppContext"
+export const Nav = () => {
     const [dropdownPos, setDropDownPos ] = useState(100)
     const [ posWidth, setPosWidth ] = useState(2)
-    const [ navPos, setNavPos ] = useState(0)
-
+    const {currentNav, setCurrentNav} = useContext(AppContext)
 
     useEffect(() =>{
         document.addEventListener('scroll', handleScroll)
@@ -20,12 +20,7 @@ export const Nav = ({currentNav, setCurrentNav}) => {
             if( pos.top > -10 && pos.top < 100) {
                 setCurrentNav(i)
             } 
-        })
-
-        // const pageHeight = document.documentElement.scrollHeight - window.innerHeight
-        // const currentPos = window.scrollY
-        // setPosWidth(currentPos / pageHeight * 100 < 2 ? 2 : currentPos / pageHeight * 100)
-     
+        }) 
       
     }
 
@@ -44,7 +39,7 @@ export const Nav = ({currentNav, setCurrentNav}) => {
             <div className="flex gap-4">
 
                 <div className="md:hidden" onClick={()=> setDropDownPos(dropdownPos == 0 ? -100 : 0)}>
-                    <i className={`bi bi-${dropdownPos == 0 ? 'x-lg' : 'justify'} text-gray-900 text-2xl cursor-pointer`}></i>
+                    <i className={`bi bi-${dropdownPos == 0 ? 'x-lg' : 'list'} text-gray-900 text-2xl cursor-pointer`}></i>
                 </div>
  
             </div>
@@ -56,8 +51,7 @@ export const Nav = ({currentNav, setCurrentNav}) => {
 
                 {
                     NavInfo.map((nav, key) => (
-                        <a key={key} href={`https://saculietdrivingschool.com/${nav.link}`} className={`flex items-center gap-3 items-center md:gap-0 md:flex-col ${currentNav == key ? 'opacity-50' : ''}`} onClick={()=> {
-                        // <a key={key} href={`http://localhost:5173/${nav.link}`} className={`flex items-center gap-3 items-center md:gap-0 md:flex-col text-sm ${currentNav == key ? 'opacity-50' : ''}`} onClick={()=> {
+                        <a key={key} href={`https://saculietdrivingschool.com/${nav.link}`} className={`flex items-center gap-3 items-center md:gap-0 md:flex-col ${currentNav == key ? 'border-b border-blue-900' : ''}`} onClick={()=> {
                             setCurrentNav(key)
                             setDropDownPos(100)
                             }}>

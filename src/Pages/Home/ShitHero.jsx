@@ -1,21 +1,37 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CarouselItems } from "../../assets/Constants";
-import { SecondaryButton } from "../../Components/Button";
+import { PrimaryButton, SecondaryButton } from "../../Components/Button";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
-export const Hero = () => {
+export const ShitHero = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [startX, setStartX ] = useState(0)
+    const sliderRef = useRef(null)
 
+
+    const handleTouchStart = (e) => {
+      setStartX(e.touches[0].clientX)
+    }
+    const handleTouchEnd = (e) => {
+        const deltaX = e.changedTouches[0].clientX - startX
+        const threshold = 100;
+        if(Math.abs(deltaX) > threshold){
+            nextSlide(0)
+        }else if(deltaX< 0 && currentSlide < CarouselItems.length - 1){
+            setCurrentSlide(currentSlide === CarouselItems.length - 1 ? 0 : prev => prev + 1 )
+        }
+    }
 
     useEffect(() => {
         const interval = setInterval(() => {
-          nextSlide('interval')
+          nextSlide(0)
       }, 6000); 
       // Change slide every 3 seconds
       return () => clearInterval(interval);
     }, [currentSlide]);
       
     const nextSlide = (curr) =>{
-      if(curr == 'interval'){
+      if(curr == 0){
         setCurrentSlide(currentSlide == CarouselItems.length - 1 ? 0 : currentSlide + 1)
       }else{
         setCurrentSlide(curr) 
@@ -23,41 +39,58 @@ export const Hero = () => {
     }
 
     return(
-        <div className="w-full relative overflow-hidden flex items-center justify-center mt-5 h-90" style={{
-          width: 100+'%'
-        }}>
-        {
-            CarouselItems.map((item, key) => (
-              key == currentSlide &&
-            <div key={key} className={`flex text-white overflow-hidde h-90 items-center justify-center relative`} style={{
-                width: 100+'%'
-            }}>
-                <div className="z-20 text-center homeHero h-full w-full flex flex-col items-center justify-center gap-3 z-10" style={{
-                backgroundColor: 'rgba(0, 0, 0, 0.85)'
+        <div className="w-full relative overflow-hidden flex items-start justify-center mt 5 h-90 w-full">
+      
+            <div className={`flex text-white overflow-hidde h-full items-center justify-center relative w-full`}
+            >
+                <div className="z-20 homeHero h-full w-full flex flex-col items-center justify-center gap-3 z-10" style={{
+                backgroundColor: 'rgba(0, 0, 10, 0.85)'
                 }}>
-                    <h2 className="font-bold text-3xl text-gray-200  w-10/12 md:w-8/12">{item.title}</h2>
-                    <p className="text-sm text-gray-300 w-10/12 md:w-8/12">{item?.p}</p>
-                    <a href="#Contact">
-                      <SecondaryButton text={'GET STARTED'} icon={'arrow-down'} buttonLink='Contact'/>
-                    </a>
+                  <div className="flex flex-col w-11/12 xl:w-9/12 gap-4" 
+                     onTouchStart={handleTouchStart}
+                     onTouchEnd={handleTouchEnd}
+                     ref={sliderRef}
+                  >
+                    <div className={`flex justify-start transition-all duration-1000`} style={{
+                      width: CarouselItems.length*100+'vw',
+                      transform: `translateX(-${currentSlide *100}vw)`
+                      // transform: 'translate(100vw)'
+                    }}>
+                      {
+                        CarouselItems.map((c, i) => (
+                          <HeroComponent key={i} item={c}/>
+
+
+                        ))
+                      }
+
+                    </div>
+                  </div>
                 </div>
-                  <div className="absolute h-full w-full top-0 flex items-center justify-center bg-blue-100 overflow-hidden">
-                    <img src={item.img} alt="" className="w-full scale-150"/>
+                  <div className="absolute h-full w-full top-0 flex items-center justify-center bg-blue-100 overflow-hidden bg-blue-300">
+                    {/* <LazyLoadImage 
+                      src={CarouselItems[currentSlide].img} 
+                      placeholderSrc="" 
+                      className="w-full"
+                      effect="blur"
+                    /> */}
+                    <img 
+                      src={CarouselItems[0].img} 
+                      alt="" 
+                      className="w-full"
+                    />
                   </div>
             </div>
 
-            ))
-        }
-        
 
-            <div className="flex absolute bottom-0 w-full items-center justify-center z-50 mb-9 pb-9">
-                <div className="flex gap-4 p-4">
+            <div className="flex absolute bottom-0 w-full items-center justify-center z-50 pb-9">
+                <div className="flex gap-4 p-4 px-9 bg-blue-900 bg-opacity-10 border border-blue-900 rounded-full">
                   {
                     CarouselItems.map((item, key) => (
                       <p key={key} className='rounded-full cursor-pointer' style={{
                         height: 12+'px',
                         width: 12+'px',
-                        transform: key == currentSlide ? 'scale(1.1)' : '',
+                        transform: key == currentSlide ? 'scale(1.3)' : '',
                         backgroundColor: key == currentSlide ? 'white' : 'rgba(225, 225, 225, 0.6)'
                       }}
                         onClick={() => setCurrentSlide(key)}
@@ -69,4 +102,29 @@ export const Hero = () => {
             </div>
         </div>
     )
+}
+
+
+const HeroComponent = ({item}) => {
+  return(
+    <div className="flex flex-col w-[100vw] gap-4">
+    <div className="flex flex-col w-10/12 md:w-8/12 lg:w-6/12 gap-4">
+      <h1 className="text-3xl md:text-4xl font-bold tracking-wide md:leading-10">
+        {/* Learn to Drive Professionally with  */}
+        {
+          item.title.map((t, i) => (
+            <span key={i} style={{
+              textShadow: i == 1 && '0px 0px 5px rgb(219, 20, 20)',
+              }}>
+                {t}
+            </span>
+          ))
+        }
+      </h1>
+      <p className="text-white text-sm tracking-wide leading-6 w-full">{item?.p}</p>
+      <SecondaryButton text={'GET STARTED now'} icon={'arrow-down'} btnClas={'border'} buttonLink='Contact'/>
+
+    </div>
+    </div>
+  )
 }

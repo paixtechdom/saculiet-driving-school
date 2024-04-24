@@ -16,6 +16,7 @@ import { Numbers } from "./Numbers"
 import { Reviews } from "./Reviews"
 import { PictureList } from "../Gallery/PictureList"
 import { Helmet } from "react-helmet-async"
+import { ShitHero } from "./ShitHero"
 
 export const Home = () => {
   const { setCurrentNav, dbLocation } = useContext(AppContext)
@@ -25,23 +26,24 @@ export const Home = () => {
     }, [])
     
     return(
-        <div id='Home' className=" w-full overflow-hidden">
+        <div id='Home' className=" w-full overflow-hidden ">
           <Helmet>
             <title>
               Home - Saculiet Driving School
             </title>
           </Helmet>
           <div className="section h-screen mt-9">
-            <Hero />  
+            {/* <Hero />   */}
+            <ShitHero />
           </div>
      
           <Values />
           <div className="section">
-            <Card id={'award'} header={'About Saculiet Driving School'} text={['An accredited driving training institute approved by FRSC, where we impart the art of driving and instill the paramount importance of safe driving', ' Our mission is to not only save lives and protect properties but also to nurture individuals into professionals confidently navigating the roads with their own steering mastery.', 'Give us a try today and testify']} buttonText={'GET STARTED'} buttonLink={'Contact'} img={`${dbLocation}/images/IMG-20240131-WA0009.jpg`} buttonIcon={'arrow-down'}/>
+            <Card id={'award'} header={['About', ' Saculiet Driving School']} text={['An accredited driving training institute approved by FRSC, where we impart the art of driving and instill the paramount importance of safe driving', ' Our mission is to not only save lives and protect properties but also to nurture individuals into professionals confidently navigating the roads with their own steering mastery.', 'Give us a try today and testify']} buttonText={'GET STARTED Now'} buttonLink={'Contact'} img={`${dbLocation}/images/IMG-20240131-WA0009.jpg`} buttonIcon={'arrow-down'}/>
           </div>
           <Numbers />
 
-          <Card header={'Why Choose Saculiet Driving School?'} text={['We are an approved driving training institute by the FRSC, ensuring the highest standards of safety and excellence', 'Beyond steering mastery, we prioritize the art of driving and emphasize the critical importance of safe driving, creating responsible and skilled drivers.', 'Our goal extends beyond obtaining a license; we are dedicated to transforming students into professionals, instilling confidence and competence for a lifetime of safe and enjoyable driving experiences']} buttonText={'GET STARTED'} buttonLink={'Contact'} img={`${dbLocation}/images/IMG-20240114-WA0037.jpg`} buttonIcon={'arrow-down'}/>
+          <Card header={['Why Choose', ' Saculiet Driving School?']} text={['We are an approved driving training institute by the FRSC, ensuring the highest standards of safety and excellence', 'Beyond steering mastery, we prioritize the art of driving and emphasize the critical importance of safe driving, creating responsible and skilled drivers.', 'Our goal extends beyond obtaining a license; we are dedicated to transforming students into professionals, instilling confidence and competence for a lifetime of safe and enjoyable driving experiences']} buttonText={'get started now'} buttonLink={'Contact'} img={`${dbLocation}/images/IMG-20240114-WA0037.jpg`} buttonIcon={'arrow-down'}/>
 
           <CardImageOverlay header1={'International and'} header2={' Local Clients'} text={["Whether it's international partners seeking global solutions or local connections seeking personalized services, our commitment remains unwavering", "At the crossroads of international and local expertise, we prioritize client satisfaction, delivering tailored solutions to meet the unique needs of every individual and organization we serve"]} buttonText={'GET STARTED'} buttonLink={'Contact'} img={international} img2={trailer} buttonIcon={'arrow-down'} />
 
@@ -49,10 +51,10 @@ export const Home = () => {
 
           <Services />
           </div>
-          <Card id={'About'} header={'Top Driving School of The Year'} text={['Saculiet Nigeria Enterprises as the Top Driving School of the Year in Lagos State', 'TNNBP AWARD: Top Notch Nigeria Business & Professional Award', 'We are dedicated to transforming students into professionals, instilling confidence and competence for a lifetime of safe and enjoyable driving experiences']} buttonText={'GET STARTED'} buttonLink={'Contact'} img={award} buttonIcon={'arrow-down'}/>
+          <Card id={'About'} header={['Top', ' Driving School ',' of The Year']} text={['Saculiet Nigeria Enterprises as the Top Driving School of the Year in Lagos State', 'TNNBP AWARD: Top Notch Nigeria Business & Professional Award', 'We are dedicated to transforming students into professionals, instilling confidence and competence for a lifetime of safe and enjoyable driving experiences']} buttonText={'GET  now'} buttonLink={'Contact'} img={award} buttonIcon={'arrow-down'}/>
 
           <Reviews />
-          <Card header={'Book a training session now'} text={['Get started by booking a training session', 'Adult Lessons', 'Private Lessons', 'Teens Lessons']} buttonText={'GET STARTED'} buttonLink={'Contact'} img={car} buttonIcon={'arrow-down'}/>
+          <Card header={['Book a training session now']} text={['Get started by booking a training session', 'Adult Lessons', 'Private Lessons', 'Teens Lessons']} buttonText={'GET STARTED now'} buttonLink={'Contact'} img={car} buttonIcon={'arrow-down'}/>
 
           {/* reviews, google map */}
           <PictureList type={'home'}/>

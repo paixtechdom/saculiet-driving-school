@@ -4,6 +4,8 @@ import transparentcar from './images/transparentcar.png'
 import docPic from './images/gettyimages-1168408797-612x612.jpg'
 import servicePic from './images/gettyimages-1235245955-612x612.jpg'
 import trainingPic from './images/images (19).jpeg'
+import truck from './images/gettyimages-1235246163-612x612.jpg'
+import trailer from './images/trailer.jpg'
 
 
 const Logo  = logo;
@@ -19,25 +21,25 @@ const CarouselItems = [
     // Add your carousel items here
     {   
         // title: 'Embark on a journey to professional driving excellence with Saculiet Driving School',
-        title: 'Learn to Drive Professionally with Saculiet Driving School',
+        title: ['Learn to Drive Professionally with',' Saculiet Driving School'],
         img: transparentcar,
         p: 'Our comprehensive lessons are tailored to elevate your driving skills, ensuring you become a confident, skilled and reasonable driver',
     },
-    // { 
-    //     img: classroom,
-    //     title: 'We Teach The Art Of Driving And Importance Of Safe Driving',
-    //     p: "We don't just teach driving, we impart the art of safe and skilled driving. Join us in prioritizing safety and mastering the road",
-    // },
-    // { 
-        // img: people,
-    //     title: 'Licensing and Vehicle documents aquisition made easy',
-    //     p: "We simplify the path to abtaining your license and essential vehicle documents",
-    // },
-    // { 
-    //     img: forkLifters,
-    //     title: 'Learn and Earn with your driving skill',
-    //     p: 'Explore and job oppurtunities as you elevate your driving skill',
-    // },
+    { 
+        img: servicePic,
+        title: ['We Teach The Art Of Driving And Importance Of Safe Driving'],
+        p: "We don't just teach driving, we impart the art of safe and skilled driving. Join us in prioritizing safety and mastering the road",
+    },
+    {  
+        img: trailer,
+        title: ['Learn and Earn with your driving skill'],
+        p: 'Explore and job oppurtunities as you elevate your driving skill',
+    },
+    { 
+        img: docPic,
+        title: ['Licensing and Vehicle documentation made easy'],
+        p: "We simplify the path to abtaining your license and essential vehicle documents",
+    },
   ]
   const AfterHeroContent = [
     {

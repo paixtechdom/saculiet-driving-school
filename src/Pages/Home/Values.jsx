@@ -11,20 +11,24 @@ export const Values = () => {
 
                 {
                     AfterHeroContent.map((content, key)  =>(
-                        <div  key={key} className='overflow-hidden relative p-3 left-0 rounded-xl shadow-xl'>
-                                <AnimatedBorder />
-                                <div className='flex flex-col gap-2 m-3 items-center text-center'>
-                            <ParallaxRight id={`${content.title[2]}${content.title[0]}`}>
-                                    <i className={`bi bi-${content.img} text-5xl text-sec`}></i>
-                            </ParallaxRight>
-                                <ParallaxRight id={`${content.title[2]}${content.title[1]}`}>
-                                    <h3 className='text-lg'>{content.title}</h3>
-                            </ParallaxRight>
-                                <ParallaxRight id={`${content.title[0]}${content.title[1]}`}>
-                                    <p className='text-gray-700 text-sm'>{content.content}</p>
-                            </ParallaxRight>
+                        <div  key={key} className='overflow-hidden relative p-3 left-0 rounded-xl bg-blue-100 bg-opacity-10' style={{
+                            boxShadow: '0px 10px 10px 0.2px rgba(0,0,0,0.1)'
+                        }}>
 
-                                </div>
+                            <div className='flex flex-col gap-2 m-3 items-center text-center'>
+                                <ParallaxRight id={`${content.title[2]}${content.title[0]}`}>
+                                    <i className={`bi bi-${content.img} text-5xl text-sec`}></i>
+                                </ParallaxRight> 
+
+                                <ParallaxRight id={`${content.title[2]}${content.title[1]}`}>
+                                    <h3 className='text-xl text-blue pt-2 mt-4 border-t border-[rgb(219,20,20)]'>{content.title}</h3>
+                                </ParallaxRight> 
+
+                                <ParallaxRight id={`${content.title[0]}${content.title[1]}`}>
+                                    <p className='text-sm tracking-wide leading-relaxed'>{content.content}</p>
+                                </ParallaxRight>
+
+                            </div>
                         </div>
                     ))
                 }

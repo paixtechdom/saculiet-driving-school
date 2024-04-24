@@ -47,7 +47,7 @@ export const Reviews = () => {
                                   <i className={`bi bi-star${review.rating > 3 ? '-fill' : ''}`}></i>
                                   <i className={`bi bi-star${review.rating > 4 ? '-fill' : ''}`}></i>
                                 </div>
-                                <p className="text-sm text-gray-300">{review.review}</p>
+                                <p className="text-sm text-gray-300 tracking-wide leading-relaxed">{review.review}</p>
                                 </div>
                                 
                             </div>

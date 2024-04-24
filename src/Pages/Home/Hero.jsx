@@ -49,9 +49,11 @@ export const Hero = () => {
             <Parallax id='heroText'>
 
             <div className="flex flex-col w-full justify-center z-10 z-20 text-black gap-6 text-gray-200">
-              <h3 className="text-3xl md:text-4xl">{currentSlide.title}</h3>
-              <p className="text-sm">{currentSlide.p}</p>
-              <PrimaryButton text={'GET STARTED'} icon={'arrow-down'} btnClas={'border'} buttonLink='Contact'/>
+              <h3 className="text-3xl md:text-4xl">Learn to Drive Professionally with <span className="text-shadow-xl" style={{
+                textShadow: '0px 0px 5px rgb(219, 20, 20)',
+              }}>Saculiet Driving School</span></h3>
+              <p className="text-sm  tracking-wide leading-relaxed">{currentSlide.p}</p>
+              <PrimaryButton text={'GET STARTED now'} icon={'arrow-down'} btnClas={'border'} buttonLink='Contact'/>
             </div>
             </Parallax>
 
