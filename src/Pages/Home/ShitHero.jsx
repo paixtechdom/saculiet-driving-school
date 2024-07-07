@@ -39,11 +39,11 @@ export const ShitHero = () => {
     }
 
     return(
-        <div className="w-full relative overflow-hidden flex items-start justify-center mt 5 h-90 w-full">
+        <div className="w-full relative overflow-hidden flex items-start justify-center mt 5 h-90">
       
             <div className={`flex text-white overflow-hidde h-full items-center justify-center relative w-full`}
             >
-                <div className="z-20 homeHero h-full w-full flex flex-col items-center justify-center gap-3 z-10" style={{
+                <div className="z-20 homeHero h-full w-full flex flex-col items-center justify-center gap-3" style={{
                 backgroundColor: 'rgba(0, 0, 10, 0.85)'
                 }}>
                   <div className="flex flex-col w-11/12 xl:w-9/12 gap-4" 
@@ -67,13 +67,7 @@ export const ShitHero = () => {
                     </div>
                   </div>
                 </div>
-                  <div className="absolute h-full w-full top-0 flex items-center justify-center bg-blue-100 overflow-hidden bg-blue-300">
-                    {/* <LazyLoadImage 
-                      src={CarouselItems[currentSlide].img} 
-                      placeholderSrc="" 
-                      className="w-full"
-                      effect="blur"
-                    /> */}
+                  <div className="absolute h-full w-full top-0 flex items-center justify-center overflow-hidden bg-blue-300">
                     <img 
                       src={CarouselItems[0].img} 
                       alt="" 
@@ -110,7 +104,6 @@ const HeroComponent = ({item}) => {
     <div className="flex flex-col w-[100vw] gap-4">
     <div className="flex flex-col w-10/12 md:w-8/12 lg:w-6/12 gap-4">
       <h1 className="text-3xl md:text-4xl font-bold tracking-wide md:leading-10">
-        {/* Learn to Drive Professionally with  */}
         {
           item.title.map((t, i) => (
             <span key={i} style={{
@@ -122,7 +115,13 @@ const HeroComponent = ({item}) => {
         }
       </h1>
       <p className="text-white text-sm tracking-wide leading-6 w-full">{item?.p}</p>
-      <SecondaryButton text={'GET STARTED now'} icon={'arrow-down'} btnClas={'border'} buttonLink='Contact'/>
+      <div onClick={() => {
+        document.querySelector("#values").scrollIntoView({
+          behavior: "smooth"
+        })
+      }}>
+        <SecondaryButton text={'GET STARTED now'} icon={'arrow-down'} btnClas={'border'} buttonLink='Contact'/>
+      </div>
 
     </div>
     </div>

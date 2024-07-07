@@ -12,8 +12,8 @@ const Card = ({header, text, img, buttonText, buttonLink, clas, w, buttonIcon, g
                     <ParallaxRight id={`${header[0][1]}${header[0][0]}`} >
                         <div className="text-2xl md:text-3xl text-blue">{
                             header.map((h, i) =>(
-                                <span key={i} style={{
-                                    textShadow: i == 1 && '0px 0px 1px rgb(219, 20, 20)'
+                                <span className="" key={i} style={{
+                                    // textShadow: i == 1 && '0px 0px 1px rgb(219, 20, 20)'
                                   }}> {h}</span>
                             ))
                         }</div>

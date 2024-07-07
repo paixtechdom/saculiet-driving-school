@@ -38,14 +38,11 @@ export const Footer = () => {
                     }
                 </div>
                 <div className="text-gray-300 flex flex-col items-center text-center">
-
-                    {/* <p className="mt-9 mb-3 ">Read our  
-                    <a href="" className="underline">Privacy policy</a> and
-                     <a href="" className="underline ml-2">Terms of service</a></p> */}
-
                     <div className="flex flex-col items-center gap-1 text-sm">
-                             <a href={"#Home"} className="text-xl font-bold">Saculiet Driving School</a>
-                            <p>&copy; Copyright {new Date().getFullYear()}</p> 
+                            <p className="text-lg">&copy; Copyright {new Date().getFullYear()} <strong>Saculiet Driving School</strong></p> 
+
+                             <a href={"https://paixtechdom.com"} className="">Developed by <strong>Paix Techdom</strong></a>
+
                     </div>
                 </div>
             </div>

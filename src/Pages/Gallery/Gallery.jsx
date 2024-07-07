@@ -5,6 +5,7 @@ import { VideoList } from "./VideoList"
 import { Link, useNavigate } from "react-router-dom"
 import { AppContext } from "../../assets/Contexts/AppContext"
 
+
 const Gallery = () => {
     document.documentElement.scrollTop = 0
     const { setCurrentNav, displayPics, setDisplayPisc } = useContext(AppContext)
@@ -21,7 +22,7 @@ const Gallery = () => {
             <title>
               Gallery - Saculiet Driving School
             </title>
-            </Helmet>
+        </Helmet>
 
         <div className="flex justify-center items-center w-full bg-gray-90 fixed bottom-0  text-gray-200 h-12 p-1 bg-blue" style={{
                 zIndex: 500,

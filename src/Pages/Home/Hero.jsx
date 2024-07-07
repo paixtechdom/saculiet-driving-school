@@ -8,21 +8,7 @@ export const Hero = () => {
     const [currentSlide, setCurrentSlide] = useState(CarouselItems[0]);
 
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //       nextSlide('interval')
-    //   }, 6000); 
-    //   // Change slide every 3 seconds
-    //   return () => clearInterval(interval);
-    // }, [currentSlide]);
-      
-    // const nextSlide = (curr) =>{
-    //   if(curr == 'interval'){
-    //     setCurrentSlide(currentSlide == CarouselItems.length - 1 ? 0 : currentSlide + 1)
-    //   }else{
-    //     setCurrentSlide(curr) 
-    //   }
-    // }
+  
 
     return(
       <>
@@ -48,7 +34,7 @@ export const Hero = () => {
           <div className=" xl:w-9/12 w-11/12  flex flex-col items-center justify-between md:flex-row z-10 pt-9 md:pt-0">
             <Parallax id='heroText'>
 
-            <div className="flex flex-col w-full justify-center z-10 z-20 text-black gap-6 text-gray-200">
+            <div className="flex flex-col w-full justify-center z-20  gap-6 text-gray-200">
               <h3 className="text-3xl md:text-4xl">Learn to Drive Professionally with <span className="text-shadow-xl" style={{
                 textShadow: '0px 0px 5px rgb(219, 20, 20)',
               }}>Saculiet Driving School</span></h3>
