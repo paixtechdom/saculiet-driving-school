@@ -39,7 +39,7 @@ export const ShitHero = () => {
     }
 
     return(
-        <div className="w-full relative overflow-hidden flex items-start justify-center mt 5 h-90">
+        <div className="w-full relative overflow-hidden flex items-start justify-center mt 5 h-[80vh] lg:h-[90vh]">
       
             <div className={`flex text-white overflow-hidde h-full items-center justify-center relative w-full`}
             >

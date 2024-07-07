@@ -41,7 +41,7 @@ export const Footer = () => {
                     <div className="flex flex-col items-center gap-1 text-sm">
                             <p className="text-lg">&copy; Copyright {new Date().getFullYear()} <strong>Saculiet Driving School</strong></p> 
 
-                             <a href={"https://paixtechdom.com"} className="">Developed by <strong>Paix Techdom</strong></a>
+                             <a target="_blank" href={"https://paixtechdom.com"} className="">Developed by <strong>Paix Techdom</strong></a>
 
                     </div>
                 </div>
