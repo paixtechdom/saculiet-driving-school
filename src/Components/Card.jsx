@@ -75,7 +75,7 @@ const CardImageOverlay = ({header1, header2, text, img, img2, buttonText, button
 
             <div className={`flex xl:w-11/12 w-full items-center h-full z-10`}>
 
-                <div className="flex flex-col py-[5vh] lg:gap-5 gap-3 items-center text-center lg:items-start lg:text-left z-10 p-9 lg:px-[60px] bg-blue-100 bg-opacity-10 lg:bg-opacity-30 lg:backdrop-blur-2xl backdrop-blur-lg ">
+                <div className="flex flex-col py-[5vh] lg:gap-5 gap-3 items-center text-center lg:items-start lg:text-left z-10 p-9 lg:px-[60px] bg-blue-200 bg-opacity-10 lg:bg-opacity-30 lg:backdrop-blur-2xl backdrop-blur-xl">
 
                 <Parallax id={`${header1[2]}${text[0][0]}`}>
                     <h2 className="text-3xl lg:text-5xl text-sec font-bold" style={{
@@ -84,7 +84,7 @@ const CardImageOverlay = ({header1, header2, text, img, img2, buttonText, button
                     </h2>
                 </Parallax>
                 <ParallaxRight id={`${header1[2]}${text[0][2]}`}>
-                <p className="text-gray-900 flex flex-col gap-3  leading-relaxed">
+                <p className="text-white gray-400 flex flex-col gap-3  leading-relaxed">
                     {
                         text.map((t, key) => (
                         <ParallaxRight key={key} id={`${header1[0]}${header2[2]}`} >
