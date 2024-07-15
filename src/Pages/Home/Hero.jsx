@@ -22,20 +22,13 @@ export const Hero = () => {
                 }}>
                   
                 </div>
-                {/* <div className="absolute bg-white z-10 w-full h-1/5 bottom-0" style={{
-                  width: 10+'%',
-                  transform: 'translateY(0px)'
-                }}></div>
-                <div className="absolute right-0 bg-blue bg-blue-200 z-10 w-full h-1/5 bottom-0" style={{
-                  width: 10+'%',
-                  transform: 'translateY(-185%) translateX(30px)'
-                }}></div> */}
+               
               </div>
           <div className=" xl:w-9/12 w-11/12  flex flex-col items-center justify-between md:flex-row z-10 pt-9 md:pt-0">
             <Parallax id='heroText'>
 
             <div className="flex flex-col w-full justify-center z-20  gap-6 text-gray-200">
-              <h3 className="text-3xl md:text-4xl">Learn to Drive Professionally with <span className="text-shadow-xl" style={{
+              <h3 className="text-3xl md:text-4xl leading-6">Learn to Drive Professionally with <span className="text-shadow-xl" style={{
                 textShadow: '0px 0px 5px rgb(219, 20, 20)',
               }}>Saculiet Driving School</span></h3>
               <p className="text-sm  tracking-wide leading-relaxed">{currentSlide.p}</p>

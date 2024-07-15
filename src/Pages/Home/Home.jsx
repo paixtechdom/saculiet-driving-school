@@ -16,7 +16,7 @@ import { Numbers } from "./Numbers"
 import { Reviews } from "./Reviews"
 import { PictureList } from "../Gallery/PictureList"
 import { Helmet } from "react-helmet-async"
-import { ShitHero } from "./ShitHero"
+import { SHero } from "./SHero"
 
 export const Home = () => {
   const { setCurrentNav, dbLocation } = useContext(AppContext)
@@ -34,7 +34,7 @@ export const Home = () => {
           </Helmet>
           <div className="section h-screen mt-9">
             {/* <Hero />   */}
-            <ShitHero />
+            <SHero />
           </div>
      
           <Values />
@@ -54,7 +54,7 @@ export const Home = () => {
           <Card id={'About'} header={['Top', ' Driving School ',' of The Year']} text={['Saculiet Nigeria Enterprises as the Top Driving School of the Year in Lagos State', 'TNNBP AWARD: Top Notch Nigeria Business & Professional Award', 'We are dedicated to transforming students into professionals, instilling confidence and competence for a lifetime of safe and enjoyable driving experiences']} buttonText={'GET  now'} buttonLink={'Contact'} img={award} buttonIcon={'arrow-down'}/>
 
           <Reviews />
-          <Card header={['Book a training session now']} text={['Get started by booking a training session', 'Adult Lessons', 'Private Lessons', 'Teens Lessons']} buttonText={'GET STARTED now'} buttonLink={'Contact'} img={car} buttonIcon={'arrow-down'}/>
+          <Card header={['Book a training session now']} text={['Get started by booking a training session.', 'Adult, Private or Teens lesson, all available for your convenience.']} buttonText={'GET STARTED now'} buttonLink={'Contact'} img={car} buttonIcon={'arrow-down'}/>
 
           {/* reviews, google map */}
           <PictureList type={'home'}/>

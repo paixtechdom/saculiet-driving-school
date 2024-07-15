@@ -3,7 +3,7 @@ import { CarouselItems } from "../../assets/Constants";
 import { PrimaryButton, SecondaryButton } from "../../Components/Button";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-export const ShitHero = () => {
+export const SHero = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [startX, setStartX ] = useState(0)
     const sliderRef = useRef(null)
@@ -102,11 +102,11 @@ export const ShitHero = () => {
 const HeroComponent = ({item}) => {
   return(
     <div className="flex flex-col w-[100vw] gap-4">
-    <div className="flex flex-col w-10/12 md:w-8/12 lg:w-6/12 gap-4">
-      <h1 className="text-3xl md:text-4xl font-bold tracking-wide md:leading-10">
+    <div className="flex flex-col w-10/12 md:w-8/12 lg:w-6/12 gap-6">
+      <h1 className="text-4xl md:text-5xl font-bold">
         {
           item.title.map((t, i) => (
-            <span key={i} style={{
+            <span className="tracking-[0.8px] leading-[1.2]" key={i} style={{
               textShadow: i == 1 && '0px 0px 5px rgb(219, 20, 20)',
               }}>
                 {t}
@@ -114,7 +114,7 @@ const HeroComponent = ({item}) => {
           ))
         }
       </h1>
-      <p className="text-white text-sm tracking-wide leading-6 w-full">{item?.p}</p>
+      <p className="text-gray-200 text-lg tracking-wide leading-6 w-full">{item?.p}</p>
       <div onClick={() => {
         document.querySelector("#values").scrollIntoView({
           behavior: "smooth"

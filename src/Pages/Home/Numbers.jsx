@@ -19,7 +19,7 @@ export const Numbers = () => {
 
     return(
         <div id='numbers' className="flex flex-col justify-center items-center w-full text-gray-900 py-9 border-t border-b bg-blue">
-        <div className="justify-between xl:w-9/12 w-11/12 items-center transition-all duration-500 grid grid-cols-2 md:flex text-gray-200 py-9 gap-y-9 ">
+        <div className="justify-between xl:w-9/12 w-11/12 items-center transition-all duration-500 grid grid-cols-2 md:flex text-gray-200 py-[9vh] gap-y-[10vh]">
             {
                 showNo ? 
                 Nos.map((no, key)  =>(
@@ -45,16 +45,16 @@ const No = ({no}) => {
         setNewNo(newNo == no.no ? no.no : newNo + no.interval)
     }
     return(
-        <div className='overflow-hidden relative left-0 rounded-xl w-full flex-col flex items-center justify-center gap-1'>
+        <div className='overflow-h idden relative left-0 rounded-xl w-full flex-col flex items-center justify-center gap-1'>
             <ParallaxRight id={`${no.title[0]}${no.title[1]}`}>
-            <i className={`bi bi-${no.icon} text-5xl`}></i>
+            <i className={`bi bi-${no.icon} text-gray-900 text-3xl bg-white rounded-full p-5 px-7 shadow-3xl`}></i>
             </ParallaxRight>
 
             {/* <Parallax key={key} id={`${no.title[1]}${no.title[0]}`}> */}
-            <p className="text-lg text-gray-300">{newNo}+</p>
+            <p className="text-3xl mt-7 text-white">{newNo}+</p>
             {/* </Parallax> */}
             <Parallax id={`${no.title[1]}${no.title[0]}`}>
-            <h3 className=''>{no.title}</h3>
+            <h3 className='text-sm text-gray-300'>{no.title}</h3>
             </Parallax>
         </div>
     )

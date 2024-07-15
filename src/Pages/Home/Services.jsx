@@ -25,60 +25,67 @@ export const Services = () => {
     }
 
     return(
+        
         <div id='Services' className=" flex flex-col justify-center items-center w-full text-gray-900 py-9 my-9">
-            <div className="flex justify-center xl:w-9/12 w-11/12 items-cente transition-all duration-500 gap-5 flex-col">
-            <h3 className='w-full text-3xl md:text-4xl text-blue'>Our Services</h3>
-                <ParallaxRight id='serviceNav'>
-                    <div className="flex w-full justify-between shadow-lg rounded-lg overflow-hidden">
+            <div className="flex justify-center xl:w-10/12 w-11/12 items-center transition-all duration-500 mb-9 flex-col">
+            
+            <h3 className='w-full text-3xl md:text-4xl text-blue font-bold'>Our Services</h3>
 
-                        {
-                        ServicesRendered.map((service, key)  =>(
-                                <button key={key} className={`flex items-center justify-center p-2 text-sm md:text-lg md:p-3 px- rounded- transition-all duration-500 ${
-                                    currentService == key ?'border-bottom-sec text-gray-500' 
-                                   : ''
-                                
-                                }`} 
-                                    
-                                    onClick={() => {setCurrentService(key)}}>
-                                    {service.section}
-                                </button> 
-                            )) 
-                        } 
-                    </div>
-                </ParallaxRight>
-                <div className="fle justify-cente items-center w-full overflow-hidden">
-                <Parallax id={'serv'}>
-                    <div className="flex items-cente justify-between bg-blue-90 transition-all duration-500" style={{
-                        width: 300+'vw',
-                        transform: `translateX(-${currentService *100}vw)`
-                    }}>
-                        {
-                            ServicesRendered.map((service, key) => (
-                                <div key={key} className="flex w-full jistify-start flex-col md:flex-row items-start gap-9" style={{
-                                }}>
-                                    <div className="flex flex-col w-full gap-4 pr-4">
-                                        {
-                                            service.services.map((ser, key) => (
-                                                <div key={key} className="flex gap-2 items-center">                        <i className="bi bi-check2-circle text-xl text-sec"></i>
-                                                <p className="text-sm whitespace-normal break-words">{ser.title}</p>
-                                                </div>
-                                            ))
-                                        }
-                                    </div>
-                                    <div className="flex items-center justify-between w-full">
 
-                                        <img src={service.img} alt={service.section} className='w-fit'/>
-                                    </div>
-
-                                </div>
-                            ))
-                        }
-                    </div>                    
-
-                </Parallax>
-
-                </div>
             </div>
+                <div className="flex justify-center lg:items-center w-11/12 lg:w-9/12 transition-all duration-500 gap-9 flex-col">
+
+                    <ParallaxRight id='serviceNav'>
+                        <div className="flex w-fit justify-between lg:justify-start shadow-lg rounded-lg overflow-hidden">
+
+                            {
+                            ServicesRendered.map((service, key)  =>(
+                                    <button key={key} className={`flex items-c enter justify- center py-2 lg:py-3 px-[25px] rounded- transition-all duration-500 ${
+                                        currentService == key ?'border-bottom-sec bg-blue text-white' 
+                                    : 'hover:bg-gray-100'
+                                    
+                                    }`} 
+                                        
+                                        onClick={() => {setCurrentService(key)}}>
+                                        {service.section}
+                                    </button> 
+                                )) 
+                            } 
+                        </div>
+                    </ParallaxRight>
+
+                    <div className="flex justify-start items-start  overflow-hidden w-full">
+                    <Parallax id={'serv'}>
+                        <div className="flex items-start justify-between transition-all duration-500" style={{
+                            width: 300+'vw',
+                            transform: `translateX(-${currentService *100}vw)`
+                        }}>
+                            {
+                                ServicesRendered.map((service, key) => (
+                                    <div key={key} className="flex w-[100vw] justify-start flex-col lg:flex-row items-cen ter gap-9 bg-red-30 0">
+                                        <div className="flex flex-col lg:w-7/12 gap-4 pr-4">
+                                            {
+                                                service.services.map((ser, key) => (
+                                                    <div key={key} className="flex gap-2 items-center">                 <i className="bi bi-check-circle-fill text-xl text-sec"></i>
+                                                    <p className="text-black whitespace-normal break-words text-lg">{ser.title}</p>
+                                                    </div>
+                                                ))
+                                            }
+                                        </div>
+                                        <div className="flex items-center justify-between w-full lg:w-8/12 lg:h-[40vh] overflow-x-hidden">
+
+                                            <img src={service.img} alt={service.section} className='w-fit lg:object-fit'/>
+                                        </div>
+
+                                    </div>
+                                ))
+                            }
+                        </div>                    
+
+                    </Parallax>
+
+                    </div>
+                </div>
         </div>
     )
 }

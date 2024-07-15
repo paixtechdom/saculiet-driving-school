@@ -15,7 +15,7 @@ export const ZoomedImage = () => {
         <div className="bg-black fixed top-0 h-screen w-full flex justify-center items-center" style={{
             zIndex: 507
         }}>
-            <p className="fixed rounded-full bg-gray-700 top-0 left-0 flex justify-center items-center text-white m-2 p-2 px-3 text-xl cursor-pointer" onClick={()=>  {
+            <p className="fixed rounded-full bg-gray-700 top-0 left-0 flex justify-center items-center text-white m-2 p-2 px-3 text-lg cursor-pointer" onClick={()=>  {
                 setShowZoom(false)
                 document.body.style.overflowY= 'scroll'
             }} style={{
