@@ -111,7 +111,7 @@ export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requ
     }
 
     return(
-        <form action="" className="w-full flex justify-center align-center flex-col my-9 gap-6 border border-blue shadow-xl rounded-xl lg:w-7/12 transition-all duration-500 p-4 py-9" 
+        <form action="" className="w-full flex justify-center align-center flex-col my-9 gap-6 border border-blue shadow-xl rounded-xl lg:w-9/12 transition-all duration-500 p-7 lg:p-9 py-9" 
                     onSubmit={(e) => verify(e)}
                     >
 
@@ -151,7 +151,7 @@ export const VerifyEmail = ({userName, setVerificationStatus, setRequestId, requ
                                 }}>Resend Email</div> : ''
                             }
                         </div>
-                        <button className="bg-blue w-full p-3 text-gray-100 rounded-full flex justify-center items-center gap-1 text-sm" disabled={buttonDisabled}>
+                        <button className="bg-blue w-full md:w-[200px] p-3 text-gray-100 rounded-full flex justify-center items-center gap-1 text-sm" disabled={buttonDisabled}>
                             {
                                 isLoading ?
                                 <>

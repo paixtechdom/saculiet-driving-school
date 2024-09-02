@@ -52,6 +52,7 @@ export const Nav = () => {
                 {
                     NavInfo.map((nav, key) => (
                         <a key={key} href={`https://saculietdrivingschool.com/${nav.link}`} className={`flex gap-3 items-center lg:gap-0 lg:flex-col ${currentNav == key ? 'border-b border-blue-900' : ''}`} onClick={()=> {
+                        // <a key={key} href={`/${nav.link}`} className={`flex gap-3 items-center lg:gap-0 lg:flex-col ${currentNav == key ? 'border-b border-blue-900' : ''}`} onClick={()=> {
                             setCurrentNav(key)
                             setDropDownPos(100)
                             }}>

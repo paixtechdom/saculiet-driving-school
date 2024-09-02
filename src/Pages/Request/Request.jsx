@@ -101,19 +101,7 @@ export const Request = () => {
                     }, 2000);
         
                 })
-            // }
-            // else{
-            //     navigate('/')
-            //     setShowAlert(true)
-            //     setAlertType('Oops')
-            //     if(res.data.status == 'active'){
-            //         setAlertMessage(['You cannot place a request right now', 'You have an active request'])
-            //     }
-            //     if(res.data.status == 'pending'){
-            //         setAlertMessage(['You cannot place a request right now', 'You have a pending request'])
-            //     }
-            // }
-        // })
+         
     }
 
     const sendVerificationMail = () => {
@@ -144,7 +132,7 @@ export const Request = () => {
 
 
     return(
-        <div className="flex justify-center mt-9 pt-9 w-full min-h-screen">
+        <div className="flex justify-center mt-[10vh] pt-9 w-full min-h-screen">
              <Helmet>
             <title>
               Request Certificate Verification - Saculiet Driving School
@@ -155,15 +143,14 @@ export const Request = () => {
                 <Info setShowInfo={setShowInfo} /> 
                 : 
                 <div className="w-11/12 flex justify-center items-center flex-col  xl:w-9/12 transition-all duration-500 md:mt-9">
-                <div className="mt-9 fixed left-0 w-full flex justify-center top-0">
-
-                <div className="flex w-11/12 md:w-9/12 p-1 rounded-full shadow border-primar items-center justify-center my-9 bg-white">
-                    <ProgressCircle check={verificationStatus > 0}/>
-                    <div className={`w-4/12 h-1 ${verificationStatus > 0 ? 'bg-green-700' : 'bg-green-200'}`}></div>
-                    <ProgressCircle check={verificationStatus > 1}/>
-                    <div className={`w-4/12 h-1 ${verificationStatus > 1 ? 'bg-green-700' : 'bg-green-200'}`}></div>
-                    <ProgressCircle check={verificationStatus > 2}/>
-                </div>
+                <div className="mt-[8vh] fixed left-0 w-full flex justify-center top-0 lg:top-[5vh]">
+                    <div className="flex w-11/12 md:w-9/12 p-3 rounded-full shadow items-center justify-center my-9 bg-blue-200 bg-opacity-10 ">
+                        <ProgressCircle check={verificationStatus > 0}/>
+                        <div className={`w-4/12 h-1 ${verificationStatus > 0 ? 'bg-green-700' : 'bg-green-200'}`}></div>
+                        <ProgressCircle check={verificationStatus > 1}/>
+                        <div className={`w-4/12 h-1 ${verificationStatus > 1 ? 'bg-green-700' : 'bg-green-200'}`}></div>
+                        <ProgressCircle check={verificationStatus > 2}/>
+                    </div>
                 </div>
                 <div className="my-9"></div>
                     { verificationStatus == 3 ?
@@ -188,11 +175,10 @@ export const Request = () => {
 
                     {
                         verificationStatus == 0 ?
-                        <form action="" className="flex justify-center align-center w-full flex-col my-9 gap-9 md:gap-9 shadow-xl p-5 rounded-xl md:w-9/1 lg:grid grid-cols-2 p-4 py-8" 
+                        <form action="" className="flex justify-center align-center w-full flex-col my-9 gap-9 md:gap-9 shadow-xl p-7 rounded-xl md:w-9/1 lg:grid grid-cols-2 py-8" 
                         onSubmit={handleSubmit(HandleSendRequest)}
                         >
                             <div className="flex flex-col w-full">
-                                {/* <FormLabel text={'Name of organization'} icon={'people-fill'}/> */}
                                 <div className="flex w-full overflow-hidden  border-bottom-primary">
                                     <i className="bi bi-people-fill bg-sec text-gray-50 p-2"></i>
                                     <input type="text" placeholder="Name of Organization" className="p-2 px-4 text-sm outline-none bg-gray-50 w-full" {...register("name")}/>
@@ -204,8 +190,6 @@ export const Request = () => {
                             </div>
 
                             <div className="flex flex-col w-full">
-                                {/* <FormLabel text={'Email'} icon={'envelope-fill'}/> */}
-
                                 <div className="flex w-full overflow-hidden border-gray-50 border-bottom-primary">
                                     <i className="bi bi-envelope-fill bg-blue text-gray-50 p-2"></i>
                                     <input type="email" placeholder="Email" className="p-2 text-sm outline-none bg-gray-50 w-full px-4" {...register("email")}/>
@@ -250,19 +234,9 @@ export const Request = () => {
                                     <FormError message={errors.lastName?.message}/> : ''
                                 }
                             </div>
-                            {/* <div className="flex flex-col w-full">
-                                <div className="flex w-full rounded-xl overflow-hiddenborder-gray-50 border-bottom-primary">
-                                    <i className="bi bi-person-fill bg-sec text-gray-50 p-2"></i>
-                                    <textarea type="text" placeholder="Reason for request" className="min-h-32 max-h-32 p-2 text-sm outline-none bg-gray-50 w-full" {...register("reason")}/>
-                                </div>
-                                    {
-                                        errors.reason?.message ?
-                                        <FormError message={errors.reason?.message}/> : ''
-                                    }
+                          
 
-                            </div> */}
-
-                            <button className="bg-blue w-full p-4 text-gray-100 rounded-lg flex justify-center items-center gap-1 text-sm col-span-2">
+                            <button className="bg-blue w-full md:w-[200px] p-4 text-gray-100 rounded-lg flex justify-center items-center gap-1 text-sm col-span-2">
                                 {
                                     isSending ?
                                     <>
@@ -301,7 +275,7 @@ const ProgressCircle = ({check}) => {
             height: 30+'px',
             width: 30+'px'
         }}>
-            <div className={`flex items-center justify-center rounded-full ${check ? 'bg-green-600' : 'bg-green-200'} text-gray-100 text-xl shadow scale-90`} style={{
+            <div className={`flex items-center justify-center rounded-full ${check ? 'bg-green-700' : 'bg-green-200'} text-gray-100 text-xl shadow scale-90`} style={{
             height: 20+'px',
             width: 20+'px'
         }}>
