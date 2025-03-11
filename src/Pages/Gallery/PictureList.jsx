@@ -45,7 +45,7 @@ export const PictureList = ({type}) => {
                 <h3 className='w-11/12 text-3xl md:text-4xl text-blue mt-9 font-bold'>Pictures</h3>
                 {
                     type == 'home'?
-                    <a href={`https://saculietdrivingschool.com/Gallery`} >
+                    <a href={`https://saculietdrivingschool.org/Gallery`} >
                     <SecondaryButton text={'View more'} icon={'arrow-right'} btnClas={'w-full'}/>
                     </a> : ''
                 }

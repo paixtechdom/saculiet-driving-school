@@ -11,8 +11,8 @@ import trailer from './images/trailer.jpg'
 const Logo  = logo;
 const LogoText  = logoText;
 
-// const  db = '/saculietAPI';
-const  db = 'https://saculietdrivingschool.com/saculietAPI'
+
+const  db = 'https://saculietdrivingschool.org/saculietAPI'
 // const  db = 'http://localhost:80/saculietAPI'
 
 
@@ -100,7 +100,7 @@ const SocialMediaInfo = [
         link: ''
     },
     {   
-        title: 'Call',
+        title: 'Customer Service',
         icon: 'telephone-fill',
         link: 'tel:+2349065823571',
         text: '+2349065823571'
@@ -112,7 +112,7 @@ const SocialMediaInfo = [
         text: '+2349163268225'
     },
     {  
-        title: 'Customer Service',
+        title: 'Business Development',
         icon: 'telephone-fill',
         link: 'tel:+2349163268225',
         text: '+2349163268225'
@@ -122,38 +122,38 @@ const Emails = [
     {
         title: 'Customer Service',
         icon: 'envelope-fill',
-        link: 'mailto:customerservice@saculietdrivingschool.com',
-        text: 'customerservice@saculietdrivingschool.com'
+        link: 'mailto:customerservice@saculietdrivingschool.org',
+        text: 'customerservice@saculietdrivingschool.org'
     },
     {
         title: 'Business Development',
         icon: 'envelope-fill',
-        link: 'mailto:businessdevelopment@saculietdrivingschool.com',
-        text: 'businessdevelopment@saculietdrivingschool.com'
+        link: 'mailto:businessdevelopment@saculietdrivingschool.org',
+        text: 'businessdevelopment@saculietdrivingschool.org'
     },
     {
         title: 'Transport and Logistics',
         icon: 'envelope-fill',
-        link: 'mailto:transportandlogistics@saculietdrivingschool.com',
-        text: 'transportandlogistics@saculietdrivingschool.com'
+        link: 'mailto:transportandlogistics@saculietdrivingschool.org',
+        text: 'transportandlogistics@saculietdrivingschool.org'
     },
     {
         title: 'Training Department',
         icon: 'envelope-fill',
-        link: 'mailto:trainingdepartment@saculietdrivingschool.com',
-        text: 'trainingdepartment@saculietdrivingschool.com'
+        link: 'mailto:trainingdepartment@saculietdrivingschool.org',
+        text: 'trainingdepartment@saculietdrivingschool.org'
     },
     {
         title: 'Elizabeth Funmilayo',
         icon: 'envelope-fill',
-        link: 'mailto:elizabethfunmilayo@saculietdrivingschool.com',
-        text: 'elizabethfunmilayo@saculietdrivingschool.com'
+        link: 'mailto:elizabethfunmilayo@saculietdrivingschool.org',
+        text: 'elizabethfunmilayo@saculietdrivingschool.org'
     },
     {
         title: 'Mr Onido',
         icon: 'envelope-fill',
-        link: 'mailto:onido@saculietdrivingschool.com',
-        text: 'onido@saculietdrivingschool.com'
+        link: 'mailto:onido@saculietdrivingschool.org',
+        text: 'onido@saculietdrivingschool.org'
     },
 ]
 

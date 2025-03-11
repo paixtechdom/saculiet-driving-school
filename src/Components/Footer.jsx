@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Emails, NavInfo } from "../assets/Constants"
+import { NavInfo } from "../assets/Constants"
 import { ContactForm } from "./Forms"
 import { ParallaxRight } from "./Parallax"
 import { GalleryNav } from "../Pages/Gallery/Gallery"

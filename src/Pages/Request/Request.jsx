@@ -92,7 +92,7 @@ export const Request = () => {
                     setTimeout(() => {
                         let subject = 'Email Verfication Saculiet Driving School'
                         let text =  'is your email verification pin'
-                        let from = 'studentverification@saculietdrivingschool.com'
+                        let from = 'studentverification@saculietdrivingschool.org'
                         let UserName = b
                         
                         sendVerificationEmail(data.email, subject, text, from, UserName)
@@ -108,14 +108,14 @@ export const Request = () => {
         
         let subject = 'Email Verfication Saculiet Driving School'
         let text =  'Your email verification pin is '
-        let from = 'studentverification@saculietdrivingschool.com'
+        let from = 'studentverification@saculietdrivingschool.org'
         sendVerificationEmail(organizationEmail, subject, text, from, userName)
     }
 
     const requestSuccessful = () => {
         let subject = organizationName.replaceAll('_', ' ') + ' submitted a student verification request'
         let orgName =  organizationName.replaceAll('_', ' ')
-        let link = 'studentverification.saculietdrivingschool.com'
+        let link = 'studentverification.saculietdrivingschool.org'
         // let r = reason.replaceAll(/\n/g, '<br>')
         let firstname = firstName
         let lastname = lastName

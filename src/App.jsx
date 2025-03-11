@@ -17,6 +17,7 @@ import { db } from './assets/Constants';
 import { ZoomedImage } from './Components/ZoomedImage';
 import { PictureList } from './Pages/Gallery/PictureList';
 import { VideoList } from './Pages/Gallery/VideoList';
+import { JobPage } from './Pages/Job/JobPage';
 
 const Layout = () =>{
   const url = document.baseURI
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
         path: '/Gallery/Videos',
         element: <VideoList /> 
       },
+      // {
+      //   path: '/job',
+      //   element: <JobPage /> 
+      // },
       {
         path: '/certificate_verification',
         element: <Request /> 

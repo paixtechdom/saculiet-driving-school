@@ -38,7 +38,7 @@ export const Info = ({setShowInfo}) => {
                   <div className="height " style={{
                             lineHeight: 30+'px'
                         }}>
-                            6. <a className="text-blue font-bold" href="mailto:studentverification@saculietdrivingschool.com">Click here </a> 
+                            6. <a className="text-blue font-bold" href="mailto:studentverification@saculietdrivingschool.org">Click here </a> 
                             to Contact us in case of any challenges or complaints
                 </div>
             </div>
