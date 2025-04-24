@@ -33,7 +33,7 @@ export const VideoComponent = ({src, id }) => {
             ref={videoRef}
             height='500'
             ></video> */}
-            <div className="wrapper flex items-center justify-center cursor-pointer bg-black overflow-hidden rounded-2xl max-h-48 my-4 md:mx-4" 
+            <div className="wrapper flex items-center justify-center cursor-pointer bg-black overflow-hidden rounded-2xl max-h-48 " 
             onClick={() => {
                     console.log('click')
                     setPlayVideo(true)
@@ -46,7 +46,6 @@ export const VideoComponent = ({src, id }) => {
                 width='100%'
                 controls={false}
                 playbackRate={1}                
-                
                 />
             </div>
             {

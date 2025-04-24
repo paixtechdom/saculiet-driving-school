@@ -26,7 +26,7 @@ export const PictureList = ({type}) => {
     const fetchImages = () => {
         if(images.length < 1){
             if(type == 'home'){
-                axios.get(`${dbLocation}/images.php/latest/6`).then(function(res){
+                axios.get(`${dbLocation}/images.php/latest/8`).then(function(res){
                     setImages(res.data)
                 })
             }
@@ -40,7 +40,7 @@ export const PictureList = ({type}) => {
     }
 
     return(
-        <div className="flex flex-col justify-center items-center w-full text-gray-900 border-t border-b">
+        <div className="flex flex-col justify-center items-center w-full text-gray-900 border-t border-b mt-[5vh] md:mt-[10vh]">
             <div className="flex justify-between w-11/12 md:w-9/12 flex-col gap-5 mt-6">
                 <h3 className='w-11/12 text-3xl md:text-4xl text-blue mt-9 font-bold'>Pictures</h3>
                 {
@@ -50,22 +50,24 @@ export const PictureList = ({type}) => {
                     </a> : ''
                 }
             </div>
-            <div className="justify-center xl:w-9/12 w-11/12 items-center transition-all duration-500 flex-col md:grid md:grid-cols-3 gap-2 md:flex text-gray-200 py-9">
+            <div className="xl:w-9/12 w-11/12 items-center transition-all duration-500 flex-col grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2 text-gray-200 py-5">
             {
                 React.Children.toArray(
                     images?.map((image) => (
-                        <div  className='overflow-hidden relative left-0 rounded-lg w-full h-full min-h-48 md:h-48 flex-col flex items-center justify-center my-3 md:my-0 border bg-gray-900' onClick={() => {
+                        <div  className='overflow-hidden relative left-0 rounded-lg w-full h-[20vh] lg:h-48 flex-col flex items-center justify-center md:my-0 border bg-gray-900' onClick={() => {
                             setShowZoom(true)
                             setImageSource(`${dbLocation}/images/${image.fileName}`)
                         }}>
-                        <LazyLoadImage 
-                             src={`${dbLocation}/images/${image.fileName}`} 
-                            //  height={550}
-                             placeholderSrc={image.fileName} 
-                             effect='blur'
-                             className="w-full"
-                        
-                        />
+                            <div className="center cursor-pointer hover:scale-150 transition-all duration-1000">
+                                <LazyLoadImage 
+                                    src={`${dbLocation}/images/${image.fileName}`} 
+                                    //  height={550}
+                                    placeholderSrc={image.fileName} 
+                                    effect='blur'
+                                    className="w-[100vw] h-[40vh] object-cover"
+                                
+                                />
+                            </div>
                         </div>
 
                     ))

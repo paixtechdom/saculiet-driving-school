@@ -25,6 +25,8 @@ export const Footer = () => {
 
                 <div className="flex flex-col w-full gap-5 text-gray-300 border-t border-gray-500z pt-[10vh] mt-[10vh] items-centr">
                     <h3 className="text-white text-xl font-bold">Quick Links</h3>
+
+                    <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 w-full gap-5">
                     {
                         NavInfo.map((nav, key) => (
                             <ParallaxRight key={key} id={nav.title.replaceAll(' ', '')}>
@@ -36,6 +38,7 @@ export const Footer = () => {
                   
                         ))
                     }
+                    </div>
                 </div>
                 <div className="text-gray-300 flex flex-col items-center text-center mt-9">
                     <div className="flex flex-col items-center gap-1 text-sm">
