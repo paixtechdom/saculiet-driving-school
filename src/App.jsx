@@ -18,6 +18,9 @@ import { ZoomedImage } from './Components/ZoomedImage';
 import { PictureList } from './Pages/Gallery/PictureList';
 import { VideoList } from './Pages/Gallery/VideoList';
 import { JobPage } from './Pages/Job/JobPage';
+import About from './Pages/About/About';
+import Contact from './Pages/Contact/Contact';
+import Courses from './Pages/Courses/Courses';
 
 const Layout = () =>{
   const url = document.baseURI
@@ -73,10 +76,23 @@ const router = createBrowserRouter([
         element: <Home /> 
       },
       {
+        path: '/about',
+        element: <About /> 
+      },
+      {
+        path: '/courses',
+        element: <Courses /> 
+      },
+      {
+        path: '/contact',
+        element: <Contact /> 
+      },
+      {
         path: '/Gallery',
         element: <Gallery /> 
       },
       {
+
         path: '/Gallery/Pictures',
         element: <PictureList /> 
       },

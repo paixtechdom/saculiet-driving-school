@@ -2,15 +2,11 @@ import { Card, CardImageOverlay } from "../../Components/Card"
 import { useContext } from "react"
 import { AppContext } from "../../assets/Contexts/AppContext"
 import car from "../../assets/images/IMG_20200210_095940.jpg"
-import about from "../../assets/images/gettyimages-1335863186-612x612.jpg"
-import why from "../../assets/images/gettyimages-813079014-612x612.jpg"
 import award from "../../assets/images/award.jpg"
 import international from "../../assets/images/gettyimages-78465904-612x612.jpg"
 import trailer from "../../assets/images/trailer.jpg"
 import { useEffect } from "react"
-import { PrimaryButton } from "../../Components/Button"
 import { Values } from "./Values"
-import { Hero } from "./Hero"
 import { Services } from "./Services"
 import { Numbers } from "./Numbers"
 import { Reviews } from "./Reviews"
@@ -38,19 +34,19 @@ export const Home = () => {
           </div>
      
           <Values />
-          <div className="section">
-            <Card id={'award'} header={['About', ' Saculiet Driving School']} text={['An accredited driving training institute approved by FRSC, where we impart the art of driving and instill the paramount importance of safe driving', ' Our mission is to not only save lives and protect properties but also to nurture individuals into professionals confidently navigating the roads with their own steering mastery.', 'Give us a try today and testify']} buttonText={'GET STARTED Now'} buttonLink={'Contact'} img={`${dbLocation}/images/IMG-20240131-WA0009.jpg`} buttonIcon={'arrow-down'}/>
-          </div>
           <Numbers />
+          <div className="section">
 
-          <Card header={['Why Choose', ' Saculiet Driving School?']} text={['We are an approved driving training institute by the FRSC, ensuring the highest standards of safety and excellence', 'Beyond steering mastery, we prioritize the art of driving and emphasize the critical importance of safe driving, creating responsible and skilled drivers.', 'Our goal extends beyond obtaining a license; we are dedicated to transforming students into professionals, instilling confidence and competence for a lifetime of safe and enjoyable driving experiences']} buttonText={'get started now'} buttonLink={'Contact'} img={`${dbLocation}/images/IMG-20240114-WA0037.jpg`} buttonIcon={'arrow-down'}/>
+            <Services />
+          </div>
+
+          <section className="section">
+            Courses
+          </section>
 
           <CardImageOverlay header1={'International and'} header2={' Local Clients'} text={["Whether it's international partners seeking global solutions or local connections seeking personalized services, our commitment remains unwavering", "At the crossroads of international and local expertise, we prioritize client satisfaction, delivering tailored solutions to meet the unique needs of every individual and organization we serve"]} buttonText={'GET STARTED'} buttonLink={'Contact'} img={international} img2={trailer} buttonIcon={'arrow-down'} />
 
-          <div className="section">
-
-          <Services />
-          </div>
+            
           <Card id={'About'} header={['Top', ' Driving School ',' of The Year']} text={['Saculiet Nigeria Enterprises as the Top Driving School of the Year in Lagos State', 'TNNBP AWARD: Top Notch Nigeria Business & Professional Award', 'We are dedicated to transforming students into professionals, instilling confidence and competence for a lifetime of safe and enjoyable driving experiences']} buttonText={'GET  now'} buttonLink={'Contact'} img={award} buttonIcon={'arrow-down'}/>
 
           <Reviews />

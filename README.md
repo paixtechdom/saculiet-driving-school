@@ -1,8 +1,41 @@
-# React + Vite
+1. Pages:
+    Home
+        Hero
+        After Hero
+        Numbers
+        Services
+        Courses
+        International And Local Clients
+        Top Driving School of the Year
+        Testimonial
+        Book a session now
+        Images
+        Footer
+        
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+    About
+        Hero
+        About Saculiet
+        Why choose saculiet
+        Services
 
-Currently, two official plugins are available:
+    Courses 
+        Hero
+        Truck
+        Trailer
+        Forklift
+        Car - Manual and Automatic
+    
+        Online registration form
+            
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    Contact
+        Address
+        Numbers
+        Emails
+        Contact Form
+        Google Map
+
+    Gallery
+
+    Certificate Verification

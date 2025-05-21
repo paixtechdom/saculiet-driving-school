@@ -6,7 +6,7 @@ import { Parallax, ParallaxRight } from "./Parallax"
 
 const Card = ({header, text, img, buttonText, buttonLink, clas, w, buttonIcon, goTo, id}) => {
     return(
-        <div id={id} className="flex justify-center items-center w-full text-gray-900 py-9 lg:h-96 lg:my-[25vh] my-[20vh]">
+        <div id={id} className="flex justify-center items-center w-full text-gray-900 py-9 lg:h-96 lg:my-[20vh] my-[15vh]">
             <div className={`flex justify-between xl:w-10/12 w-11/12 items-center transition-all duration-500 lg:gap-9 gap-8 lg:flex-row flex-col h-full`}>
                     <div className="flex flex-col lg:gap-5 gap-3 text-cente lg:text-left lg:w-8/12 w-full">
                     <ParallaxRight id={`${header[0][1]}${header[0][0]}`} >

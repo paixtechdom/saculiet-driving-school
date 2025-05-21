@@ -31,11 +31,11 @@ export const Nav = () => {
     }}>
         <div className="flex justify-between xl:w-10/12 w-11/12 items-center transition-all duration-500 lg:bg-none z-50">
 
-            <a href='https://saculietdrivingschool.org' className="logo text-2xl text-gray-300">
+            <Link to='/' className="logo text-2xl text-gray-300">
             {/* <a href='http://localhost:5173' className="logo text-2xl text-gray-300"> */}
 
                 <img src={Logo} alt="Logo" className="w-2/12 lg:w-3/12"/>
-            </a>
+            </Link>
             <div className="flex gap-4">
 
                 <div className="lg:hidden" onClick={()=> setDropDownPos(dropdownPos == 0 ? -100 : 0)}>
@@ -51,14 +51,13 @@ export const Nav = () => {
 
                 {
                     NavInfo.map((nav, key) => (
-                        <a key={key} href={`https://saculietdrivingschool.org/${nav.link}`} className={`flex gap-3 items-center lg:gap-0 lg:flex-col ${currentNav == key ? 'border-b border-blue-900' : ''}`} onClick={()=> {
-                        // <a key={key} href={`/${nav.link}`} className={`flex gap-3 items-center lg:gap-0 lg:flex-col ${currentNav == key ? 'border-b border-blue-900' : ''}`} onClick={()=> {
+                        <Link key={key} to={`/${nav.link}`} className={`flex gap-3 items-center lg:gap-0 lg:flex-col ${currentNav == key ? 'border-b border-blue-900' : ''}`} onClick={()=> {
                             setCurrentNav(key)
                             setDropDownPos(100)
                             }}>
                             <i className={`bi bi-${nav.icon}-fill text-sec text-lg lg:hidden`}></i>
                             <div className='text-blue text'>{nav.title}</div>
-                        </a>
+                        </Link>
                       
 
                         ))

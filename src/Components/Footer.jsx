@@ -19,35 +19,33 @@ export const Footer = () => {
             zIndex: 505
         }}>
             <div className="flex justify-between xl:w-10/12 w-11/12 items-center transition-all duration-500 gap-9 flex-col ">
-            <div className="flex w-full">
-                <ContactForm />
+           
+
+            <div className="flex flex-col w-full gap-5 text-gray-300 border-t border-gray-500z pt-[10vh] mt-[10vh] items-centr">
+                <h3 className="text-white text-xl font-bold">Quick Links</h3>
+
+                <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 w-full gap-5">
+                {
+                    NavInfo.map((nav, key) => (
+                        <ParallaxRight key={key} id={nav.title.replaceAll(' ', '')}>
+                            <a href={`#${nav.title}`} className='flex gap-3'>
+                                <i className={`bi bi-${nav.icon}-fill`}></i>
+                                <p className="">{nav.title}</p>
+                            </a>
+                        </ParallaxRight>
+                
+                    ))
+                }
+                </div>
             </div>
+            <div className="text-gray-300 flex flex-col items-center text-center mt-9">
+                <div className="flex flex-col items-center gap-1 text-sm">
+                        <p className="text-lg">&copy; Copyright {new Date().getFullYear()} <strong>Saculiet Driving School</strong></p> 
 
-                <div className="flex flex-col w-full gap-5 text-gray-300 border-t border-gray-500z pt-[10vh] mt-[10vh] items-centr">
-                    <h3 className="text-white text-xl font-bold">Quick Links</h3>
+                            <a target="_blank" href={"https://paixtechdom.com"} className="">Developed by <strong>Paix Techdom</strong></a>
 
-                    <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 w-full gap-5">
-                    {
-                        NavInfo.map((nav, key) => (
-                            <ParallaxRight key={key} id={nav.title.replaceAll(' ', '')}>
-                                <a href={`#${nav.title}`} className='flex gap-3'>
-                                    <i className={`bi bi-${nav.icon}-fill`}></i>
-                                    <p className="">{nav.title}</p>
-                                </a>
-                            </ParallaxRight>
-                  
-                        ))
-                    }
-                    </div>
                 </div>
-                <div className="text-gray-300 flex flex-col items-center text-center mt-9">
-                    <div className="flex flex-col items-center gap-1 text-sm">
-                            <p className="text-lg">&copy; Copyright {new Date().getFullYear()} <strong>Saculiet Driving School</strong></p> 
-
-                             <a target="_blank" href={"https://paixtechdom.com"} className="">Developed by <strong>Paix Techdom</strong></a>
-
-                    </div>
-                </div>
+            </div>
             </div>
         </div>
         </>

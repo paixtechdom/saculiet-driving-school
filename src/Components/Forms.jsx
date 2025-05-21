@@ -134,7 +134,7 @@ const ContactForm = () => {
 
 
     return(
-        <div id={'Contact'} className="flex flex-col gap-1 justify-center items-center w-full text-gray-200 pt-[10vh]">
+        <div id={'Contact'} className="flex flex-col gap-1 justify-center items-center w-full text-gray-900 pt-[10vh]">
             <h3 className="text-3xl font-bold w-full mb-[8vh]">Contact Us</h3>
             <div className="flex flex-col justify-between items-center w-full md:gap-9 gap-8 h-full bg-blue-70">
               
@@ -145,10 +145,10 @@ const ContactForm = () => {
 
                                 <a  key={key} href={`${media.link}`}
                                 className={`flex gap-4 ${media.icon === 'sssss' ? '-mt-6 ml-5' : ''}`}>
-                                        <i className={`bi bi-${media.icon}  text-gray-300 text-2xl`}></i>
+                                        <i className={`bi bi-${media.icon}  text-gray-800 text-2xl`}></i>
                                     <div className="flex flex-col w-full gap-1"> 
                                         <h3 className="text-lg">{media.title}</h3>
-                                        <p className="text-sm text-gray-300" style={{
+                                        <p className="text-sm text-gray-900" style={{
                                             lineHeight: 22+'px'
                                         }}>{media.text}</p>
                                     </div>
@@ -162,7 +162,7 @@ const ContactForm = () => {
 
                                 <a  href={`${email.link}`}
                                 className="flex gap-4">
-                                        <i className={`bi bi-${email.icon} text-gray-300 text-2xl`}></i>
+                                        <i className={`bi bi-${email.icon} text-gray-800 text-2xl`}></i>
                                     <div className="flex flex-col w-full gap-1"> 
                                         <h3 className="text-lg">{email.title}</h3>
                                         <a className="truncate text-sm" href={`mailto:${email.text}`}>{email.text}</a>
@@ -177,17 +177,17 @@ const ContactForm = () => {
 
                 <div className="flex flex-col lg:flex-row w-full gap-[50px] mt-[15vh]">
 
-                    <form className="contact flex justify-start w-full items-center transition-all duration-500 gap-5 flex-col h-full md:w-full bg-blue-30" onSubmit={handleSubmit}>
+                    <form className="contact flex justify-start w-full items-center transition-all duration-500 gap-5 flex-col h-full md:w-full bg-gray-900 p-9 rounded-xl shadow-xl" onSubmit={handleSubmit}>
 
                         <div className="w-full ">
-                            <h2 className="text-2xl text-gray-200">Send us a message</h2>
+                            <h2 className="text-2xl text-gray-100">Send us a message</h2>
                         </div>
                         <ParallaxRight clas='w-full' id='name'>
                             <div className="flex border w-full rounded-lg overflow-hidden">
-                                        <i className="bi bi-person-fill bg-black p-2 text-white opacity-50"></i>
-                                        <input type="text" placeholder="Enter your name" className="bg-transparent p-2 w-full"  value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        required />
+                                <i className="bi bi-person-fill bg-gray-200 p-2 text-black"></i>
+                                <input type="text" placeholder="Enter your name" className="bg-transparent p-2 w-full"  value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required />
 
                             </div>
                                 {
@@ -197,7 +197,7 @@ const ContactForm = () => {
                         </ParallaxRight>
                         <ParallaxRight clas='w-full' id='email'>
                             <div className="flex border w-full rounded-lg overflow-hidden">
-                                    <i className="bi bi-envelope-fill bg-black p-2 text-white opacity-50"></i>
+                                    <i className="bi bi-envelope-fill bg-gray-200 p-2 text-black"></i>
                                     <input type="email" placeholder="Enter your email address" className="bg-transparent p-2 w-full"  value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required/>
@@ -205,7 +205,7 @@ const ContactForm = () => {
                         </ParallaxRight>
                         <ParallaxRight clas='w-full' id='message'>
                             <div className="flex border w-full rounded-lg overflow-hidden">
-                                    <i className="bi bi-chat-fill bg-black p-2 text-white opacity-50"></i>
+                                    <i className="bi bi-chat-fill bg-gray-200 p-2 text-black"></i>
                                     <textarea name="" id="" placeholder="Enter your Message" className="p-2 bg-transparent" style={{
                                         minHeight: 100+'px',
                                         maxHeight: 100+'px',
@@ -235,7 +235,7 @@ const ContactForm = () => {
                                 {
                                     isLoading ? 
                                     <ClipLoader color='white' size={15}/> : 
-                                    <i className="bi bi-chevron-right text-gray-100 bg-gray-90 rounded-full flex items-center justify-center slidetofro"></i>
+                                    <i className="bi bi-chevron-right text-gray-950 bg-gray-90 rounded-full flex items-center justify-center slidetofro"></i>
                                 }
                             </div>
                         </ParallaxRight>

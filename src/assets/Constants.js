@@ -6,14 +6,17 @@ import servicePic from './images/gettyimages-1235245955-612x612.jpg'
 import trainingPic from './images/images (19).jpeg'
 import truck from './images/gettyimages-1235246163-612x612.jpg'
 import trailer from './images/trailer.jpg'
+import forklift from './images/forklift.jpg'
+import truckImg from './images/truckImg.jpg'
+import carImg from './images/carImg.jpg'
 
 
 const Logo  = logo;
 const LogoText  = logoText;
 
 
-const  db = 'https://saculietdrivingschool.org/saculietAPI'
-// const  db = 'http://localhost:80/saculietAPI'
+// const  db = 'https://saculietdrivingschool.org/saculietAPI'
+const  db = 'http://localhost:80/saculietAPI'
 
 
 
@@ -40,7 +43,8 @@ const CarouselItems = [
         title: ['Licensing and Vehicle documentation made easy'],
         p: "We simplify the path to abtaining your license and essential vehicle documents",
     },
-  ]
+]
+
   const AfterHeroContent = [
     {
         img: 'person-badge-fill',
@@ -68,22 +72,23 @@ const NavInfo = [
     {
         title: 'About',
         icon: 'person',
-        link: '#About'
+        link: 'about'
     },
     {
-        title: 'Services',
+        title: 'Courses',
         icon: 'book',
-        link: '#Services'
+        link: 'courses'
     },
+
     {
         title: 'Contact',
         icon: 'telephone',
-        link: '#Contact'
+        link: 'contact'
     },
     {
         title: 'Gallery',
         icon: 'image',
-        link: 'Gallery'
+        link: 'gallery'
     },
     {
         title: 'Certificate Verification',
@@ -319,6 +324,100 @@ const ReviewsData = [
         review: 'With what I have seen here and the knowledge I have acquired here, Saculiet Driving School is one of the few best Driving Schools in the country, Nigeria'
     },
 ]
+
+export const CoursesList = [
+    {
+        title: "Car Driving",
+        desc: "",
+        outline: [
+            "Classroom Training",
+            "Driver Orientation And Preparation",
+            "The Art Of Driving",
+            "Safe Driving And Road Traffic Laws",
+            "Sharing The Road With Other Users/Parking",
+            "Basic Vehicle Maintenance",
+            "Road Signs And Markings",
+            "Basic Vehicle Mechanism",
+            "Road Traffic Crashes (RTC’s) Causes, Effects And Prevention",
+            "Basic First Aid And Cardiopulmonary Resuscitation (CPR)",
+            "Tyre And Safety",
+            "Licensing Of Vehicles And Drivers "
+        ],
+        img: carImg,
+        categories: [
+            {
+                title: "Manual Car Driving",
+                cost: "95,000",
+                duration: "1 Month",
+            },
+            {
+                title: "Automatic Car Driving",
+                cost: "80,000",
+                duration: "1 Month",
+            }
+        ]
+    },
+    {
+        title: "Truck / Trailer Driving",
+        outline: [
+            "Understanding Truck And Functions",
+            "Blind Sports",
+            "Sharing The Road With Others Users",
+            "Road Signs And Markings",
+            "Pre-Trip Inspection",
+            "Defensive Driving",
+            "Air Break Inspection",
+            "Load Securing",
+            "Truck Device (Techograph)",
+            "Truck Route Planning",
+            "Truck Tyres",
+            "Truck Maintainance",
+            "Safety Precaution",
+            "Classes Of Drivers License",
+            "Speed Limits "  
+        ],
+        img: truckImg,
+        categories: [
+            {
+                title: "Truck Driving (10 tons)",
+                cost: "330,000",
+                duration: "1 Month",
+            },
+            {
+                title: "Trailer Driving",
+                cost: "850,000",
+                duration: "10 weeks",
+            }
+        ]
+    },
+    {   title: "Forklift Operation",
+        outline: [
+            "Earth Moving Vehicles",
+            "Categories Of Earth Moving Vehicles",
+            "Forklift",
+            "Different Type Of Forklift",
+            "Forklift Basic Control",
+            "Forklift Parts",
+            "Who Is A Forklift Operator",
+            "Operating Forklift",
+            "Safe Operation Of Forklift",
+            "Forklift Maintenance",
+            "Operators Responsibility",
+            "Needs Of Forklift Operators",
+            "Safety Rules And Tips",
+            "Blind Spot Of Forklift And Loading Capacity"    
+        ],
+        img: forklift,
+        categories: [
+            {
+                title: "Forklift Operation",
+                cost: "200,000",
+                duration: "6 weeks",
+            }
+        ]
+    }
+]
+
 
 
 export { Logo, LogoText, NavInfo, SocialMediaInfo, AfterHeroContent, CarouselItems, ServicesRendered, Nos, classes, ReviewsData, db, Emails }
