@@ -26,9 +26,7 @@ export const Nav = () => {
 
 
     return(
-    <div className={`flex justify-center items-center w-full py-4 fixed top-0 z-50 bg-white shadow-lg`} style={{
-        zIndex: 506
-    }}>
+    <div className={`flex justify-center items-center w-full py-4 fixed top-0 bg-white shadow-lg z-[500]`} >
         <div className="flex justify-between xl:w-10/12 w-11/12 items-center transition-all duration-500 lg:bg-none z-50">
 
             <Link to='/' className="logo text-2xl text-gray-300">

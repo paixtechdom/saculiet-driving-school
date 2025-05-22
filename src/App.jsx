@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { CircleLoader, GridLoader, DotLoader, ClimbingBoxLoader } from 'react-spinners';
-import  ClipLoader  from 'react-spinners/ClipLoader';
+import './App.css';
 import './assets/Styles/index.css';
 import './assets/Styles/Animation.css';
 import { createBrowserRouter, RouterProvider, Outlet, Link, useNavigate } from 'react-router-dom';
@@ -21,6 +20,7 @@ import { JobPage } from './Pages/Job/JobPage';
 import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
 import Courses from './Pages/Courses/Courses';
+import { Payment } from './Pages/Courses/Payment';
 
 const Layout = () =>{
   const url = document.baseURI
@@ -32,6 +32,8 @@ const Layout = () =>{
   const [ showZoom, setShowZoom ] = useState(false)
   const [ displayPics, setDisplayPisc ] = useState(true)
   const [ imageSource, setImageSource ] = useState('')
+  const [ selectedCourse, setSelectedCourse ] = useState(6)
+  const [ selectedCourseName, setSelectedCourseName ] = useState("")
   const  dbLocation = db
 
 
@@ -43,7 +45,7 @@ const Layout = () =>{
   return(
     <div className='app overflow-hidden'>
       <HelmetProvider>
-        <AppContext.Provider value={{currentNav, setCurrentNav, dbLocation, alertType, setAlertType, alertMessage, setAlertMessage, showAlert, setShowAlert, showZoom, setShowZoom, imageSource, setImageSource, displayPics, setDisplayPisc }}> 
+        <AppContext.Provider value={{currentNav, setCurrentNav, dbLocation, alertType, setAlertType, alertMessage, setAlertMessage, showAlert, setShowAlert, showZoom, setShowZoom, imageSource, setImageSource, displayPics, setDisplayPisc, selectedCourse, setSelectedCourse, selectedCourseName, setSelectedCourseName }}> 
         <Nav />  
             {
               isLoading ? 
@@ -82,6 +84,10 @@ const router = createBrowserRouter([
       {
         path: '/courses',
         element: <Courses /> 
+      },
+      {
+        path: '/courses/payment',
+        element: <Payment /> 
       },
       {
         path: '/contact',

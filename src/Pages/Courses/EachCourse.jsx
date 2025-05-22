@@ -1,14 +1,19 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { PrimaryButton } from "../../Components/Button"
+import { AppContext } from "../../assets/Contexts/AppContext"
 
-export const EachCourse = ({course}) => {
+export const EachCourse = ({course, i}) => {
+  const { setSelectedCourse, setSelectedCourseName } = useContext(AppContext)
+
     const [ showOutline, setShowOutline ] = useState(false)
     return(
       <div className="flex flex-col lg:flex-row gap-3 relative">
   
           <div className="flex flex-col lg:w-7/12 pr-4 gap-2">
             <h2 className='text-2xl font-bold text-blue'>{course.title}</h2>
+            <p className="text-gray-700 text-[15px]">{course?.desc}</p>
   
+        {/* course categories */}
             <div className="flex flex-col">
               {course.categories.length > 1 &&
                 <h3 className='font-bold mt-2 mb-1'>
@@ -16,7 +21,7 @@ export const EachCourse = ({course}) => {
                 </h3>
               }
   
-              <div className="flex justify-between gap-6 ">
+              <div className="flex flex-col gap-6 ">
               {
                 course.categories.map((cat, i) => (
                   <div key={i} className="flex flex-col gap-1 bg-gray-50 w-full p-3 rounded-xl shadow">
@@ -28,14 +33,31 @@ export const EachCourse = ({course}) => {
                       </div>
                     }
                     <div className="flex flex-col gap-1 text-[15px]">
-                      <p className=''>Duration: {cat.duration}</p>
-                      <p>Price: #{cat.cost}</p>
+                      {cat.desc && <div className="my-2 flex flex-col gap-1">
+                        {cat?.desc.map((c, i) => <p key={i}>{c}</p>)}
+                        </div>}
+
+                      <p className='text-gray-800'>Duration: {cat.duration}</p>
+                      <p className="text-gray-800">Price: #{cat.cost}</p>
+                    </div>
+
+                    <div onClick={() => {setSelectedCourse(i)
+                      setSelectedCourseName(cat.name)
+                    }}>
+                      <PrimaryButton
+                        icon={'chevron-right'} 
+                        text="Register"
+                        btnClas={"mt-5"}
+                        />
                     </div>
                   </div>
                 ))
               }
               </div>
             </div>
+
+
+            {/* course outline */}
   
           <div className="flex flex-col gap-5 bg-gray-50 rounded-xl p-4 w-full shadow-xl mt-4">
             <div className="flex items-center gap-3 justify-between cursor-pointer"  onClick={() => setShowOutline(!showOutline)}>
@@ -67,17 +89,11 @@ export const EachCourse = ({course}) => {
             }
   
           </div>
-            
-            <PrimaryButton
-              icon={'chevron-right'} 
-              text="Register"
-              btnClas={"mt-5"}
-            />
           </div>
   
   
   
-          <div className="flex items-center justify-between w-full lg:w-8/12 lg:h-[40vh] sticky top-52">  
+          <div className="fl ex items-c enter justify-bet ween w- full lg:w- 8/12 lg:h -[40vh] sticky top-[20vh] right-[10px] "> 
             <img src={course.img} alt="" />
           </div>
   

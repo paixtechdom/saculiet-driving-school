@@ -328,7 +328,6 @@ const ReviewsData = [
 export const CoursesList = [
     {
         title: "Car Driving",
-        desc: "",
         outline: [
             "Classroom Training",
             "Driver Orientation And Preparation",
@@ -343,15 +342,18 @@ export const CoursesList = [
             "Tyre And Safety",
             "Licensing Of Vehicles And Drivers "
         ],
+        desc: ["Theory classes and Practical classes are during the week, and are flexibly scheduled"],
         img: carImg,
         categories: [
             {
                 title: "Manual Car Driving",
+                name: "manual",
                 cost: "95,000",
                 duration: "1 Month",
             },
             {
                 title: "Automatic Car Driving",
+                name: "automatic",
                 cost: "80,000",
                 duration: "1 Month",
             }
@@ -380,13 +382,18 @@ export const CoursesList = [
         categories: [
             {
                 title: "Truck Driving (10 tons)",
+                name: "truck",
                 cost: "330,000",
                 duration: "1 Month",
+                desc: ["Theory classes are on Thursdays and Pratical Classes are on Saturday and Sundays"]
+                
             },
             {
                 title: "Trailer Driving",
+                name: "trailer",
                 cost: "850,000",
                 duration: "10 weeks",
+                desc: ["1 month of undergoing Truck Training before proceeding to Trailer Training", "Theory classes are on Thursdays and Pratical Classes are on Saturday and Sundays for Truck training but only Sundays for Trailer Training"]
             }
         ]
     },
@@ -407,17 +414,47 @@ export const CoursesList = [
             "Safety Rules And Tips",
             "Blind Spot Of Forklift And Loading Capacity"    
         ],
+        desc: ["Theory classes are on Mondays and Pratical Classes are on Wednesday and Fridays"],
         img: forklift,
         categories: [
             {
                 title: "Forklift Operation",
                 cost: "200,000",
                 duration: "6 weeks",
+                name: "forklift",
             }
         ]
     }
 ]
 
+
+export const NarrowedCourses = {
+    manual: {
+        title: "Manual Car Driving",
+        price: "95,000",
+        duration: "1 Month"
+    },
+    automatic: {
+        title: "Automatic Car Driving",
+        price: "80,000",
+        duration: "1 Month"
+    },
+    truck: {
+        title: "Truck Driving (10 tons)",
+        price: "330,000",
+        duration: "1 Month"
+    },
+    trailer: {
+        title: "Trailer Driving",
+        price: "850,000",
+        duration: "10 Weeks"
+    },
+    forklift: {
+        title: "Forklift Operation",
+        price: "200,000",
+        duration: "6 Weeks"
+    }
+}
 
 
 export { Logo, LogoText, NavInfo, SocialMediaInfo, AfterHeroContent, CarouselItems, ServicesRendered, Nos, classes, ReviewsData, db, Emails }
