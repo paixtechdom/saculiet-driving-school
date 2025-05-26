@@ -4,25 +4,52 @@ import { AppContext } from '../../assets/Contexts/AppContext'
 import { useNavigate } from 'react-router-dom'
 import { NarrowedCourses } from '../../assets/Constants'
 
+const GetWeekdayDates = (dayOfWeek, weekInterval) => {
+    const daysOfWeekMap = {"Sunday": 0, "Monday": 1, "Tuesday": 2, "Wednesday": 3, "Thursday": 4, "Friday": 5, "Saturday": 6};
+    if (!(dayOfWeek in daysOfWeekMap)) {
+        throw new Error("Invalid day of the week");
+    }
+    const formatDate = (date) => {
+        const options = {day: 'numeric', month: 'long', year: 'numeric'}
+        return date.toLocaleDateString('en-US', options)
+    }
+
+    let today = new Date(); let targetDay = daysOfWeekMap[dayOfWeek];
+    // Find the next occurrence of the specified weekday
+    let daysUntilTarget = (targetDay - today.getDay() + 7) % 7; let nextTargetDate = new Date();
+    nextTargetDate.setDate(today.getDate() + daysUntilTarget);
+
+    let datesArray = [];
+    for (let i = 0; i < 4; i++) {
+        let formattedTargetDate = formatDate(nextTargetDate); // Format as YYYY-MM-DD
+
+        let afterIntervalDate = new Date(nextTargetDate);
+
+        afterIntervalDate.setDate(afterIntervalDate.getDate() + (weekInterval * 7));
+
+        let formattedAfterIntervalDate = formatDate(afterIntervalDate);
+
+        datesArray.push({ weekday: formattedTargetDate, afterInterval: formattedAfterIntervalDate });
+
+        // Move to the next occurrence of the weekday
+        nextTargetDate.setDate(nextTargetDate.getDate() + 7);
+    }
+
+    return datesArray;
+}
+
+
+
 const RegistrationForm = () => {
-    const { setShowAlert, setAlertMessage, setAlertType, selectedCourseName, setSelectedCourse } = useContext(AppContext)
+    const { setShowAlert, setAlertMessage, setAlertType, setSelectedCourse, selectedCourse, formInputs, setFormInputs } = useContext(AppContext)
     
-    const course = NarrowedCourses[selectedCourseName]
-    
+    const course = NarrowedCourses[selectedCourse.name]
+    const date = GetWeekdayDates(course.day, course.interval)
+    const dateOptions = date.map((d) => `${d.weekday} - ${d.afterInterval}`)
+
 
     const navigate = useNavigate()
     const [ isSending, setIsSending ] = useState(false)
-    const [ formInputs, setFormInputs ] = useState({
-        startDate: "",
-        endDate: "",
-
-        fullName: "",
-        type: "",
-        companyName: "",
-        position: "",
-        email: "",
-        number: ""
-    })
 
 
     const HandleSubmit = (e) => {
@@ -67,6 +94,7 @@ const RegistrationForm = () => {
                 name="type"
                 data={types}
             />
+          
 
             {
                 formInputs.type == "Corporate Organization" &&
@@ -102,30 +130,40 @@ const RegistrationForm = () => {
                 required={true}
             />
 
-                <div className="flex gap-3 items-center">
-                    <button className="bg-blue w-full md:w-[200px] p-4 text-gray-100 rounded-lg flex justify-center items-center gap-1 text-sm col-span-2 uppercase">
-                        {
-                            isSending ?
-                            <>
-                            <ClipLoader color={'rgb(225, 225, 225)'} size={15} loading={true} speedMultiplier={0.5}/> SENDING...
-                            </>
-                            
-                            :
-                            <>
-                            Submit
-                            <i className="bi bi-chevron-right"></i> 
-                            </>
-                        }
-                    
-                    </button>
+            <SelectInputComponent 
+                formInputs={formInputs}
+                HandleFormChange={HandleFormChange}
+                placeholder="-- Start Date --"
+                name="startDate"
+                data={dateOptions}
+            />
 
-                    <button className="border w-full md:w-[200px] p-4 text-gray-100 rounded-lg flex justify-center items-center gap-1 text-sm col-span-2 uppercase" onClick={() => {
-                        setSelectedCourse(6)
-                    }}>
-                        Close
-                    </button>
+            <div className="flex gap-3 items-center">
+                <button className="bg-blue w-full md:w-[200px] p-4 text-gray-100 rounded-lg flex justify-center items-center gap-1 text-sm col-span-2 uppercase">
+                    {
+                        isSending ?
+                        <>
+                        <ClipLoader color={'rgb(225, 225, 225)'} size={15} loading={true} speedMultiplier={0.5}/> SENDING...
+                        </>
+                        
+                        :
+                        <>
+                        Submit
+                        <i className="bi bi-chevron-right"></i> 
+                        </>
+                    }
+                
+                </button>
 
-                </div>
+                <button className="border w-full md:w-[200px] p-4 text-gray-100 rounded-lg flex justify-center items-center gap-1 text-sm col-span-2 uppercase" onClick={() => {
+                    setSelectedCourse({
+                        index: 6
+                    })
+                }}>
+                    Close
+                </button>
+
+            </div>
 
         </form>
     </section>
@@ -144,7 +182,7 @@ const FormInputComponent = ({formInputs, HandleFormChange, placeholder, name, re
                 type="text" 
                 name={name}
                 placeholder={placeholder} 
-                value={formInputs[name].toUpperCase()}
+                value={formInputs[name]}
                 onChange={HandleFormChange}
                 required={required}
                 className="p-2 px-4 text-sm outline-none bg-transparent w-full text-white placeholder:text-gray-400" />
@@ -159,11 +197,11 @@ const SelectInputComponent = ({formInputs, HandleFormChange, placeholder, name, 
         <div className="flex w-full overflow-hidden rounded-lg h-[7vh] bg-black bg-opacity-40">
             <div className="w-2 h-full bg-blue"></div>
 
-            <select name="type" id=""
-            className='p-2 px-4 text-sm outline-none bg-transparent w-full text-white focus:bg-black focus:bg-opacity-80'
-            required value={formInputs[name]}
-            onChange={HandleFormChange}
-            >
+            <select name={name} id=""
+            className={`p-2 px-4 text-sm outline-none bg-transparent w-full  focus:bg-black focus:bg-opacity-80 focus:text-white ${formInputs[name] !== "" ? "text-white" : "text-gray-400"}`}
+            required 
+            value={formInputs[name]}
+            onChange={HandleFormChange}>
                 <option value="">{placeholder}</option>
                 {data.map((d, i) => (
                     <option value={d} key={i}>{d}</option>
@@ -175,3 +213,10 @@ const SelectInputComponent = ({formInputs, HandleFormChange, placeholder, name, 
     </div>
     )
 }
+
+
+
+
+
+
+

@@ -7,10 +7,13 @@ import RegistrationForm from './RegistrationForm'
 import { AppContext } from '../../assets/Contexts/AppContext'
 
 const Courses = () => {
-  const { selectedCourse } = useContext(AppContext)
+  const { selectedCourse, setCurrentNav } = useContext(AppContext)
   // show all courses and their outlines
   // register for a course
-
+  useEffect(() => {
+    document.documentElement.scrollTop = 0
+    setCurrentNav(2)
+  }, [])
   
 
   return (
@@ -37,7 +40,7 @@ const Courses = () => {
           }
         
         {
-          selectedCourse < CoursesList.length &&
+          selectedCourse.index < CoursesList.length &&
           <RegistrationForm />
         }
 

@@ -17,7 +17,7 @@ import { SHero } from "./SHero"
 export const Home = () => {
   const { setCurrentNav, dbLocation } = useContext(AppContext)
     useEffect(() => {
-      setCurrentNav('Home')
+      setCurrentNav(0)
       document.documentElement.scrollTop = 0
     }, [])
     

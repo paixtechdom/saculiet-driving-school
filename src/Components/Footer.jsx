@@ -11,7 +11,7 @@ export const Footer = () => {
     return(
         <>
         {
-            currentNav == 4 ?
+            currentNav == 3 ?
             <GalleryNav />
             : ''
         }

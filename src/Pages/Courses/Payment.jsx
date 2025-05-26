@@ -14,32 +14,41 @@ const accounts = {
         number: "0097850297",
         bank: "Sterling Bank",
         icon: "",
-    },
+    }
 }
 
 
 
 export const Payment = () => {
-    const { selectedCourse, setShowAlert, setAlertMessage, setAlertType, selectedCourseName } = useContext(AppContext)
+    const { selectedCourse, formInputs } = useContext(AppContext)
     
-    const course = NarrowedCourses[selectedCourseName]
+    const course = NarrowedCourses[selectedCourse.name]
 
 
     const navigate = useNavigate()
     useEffect(() => {
         document.documentElement.scrollTop = 0
-        if(selectedCourse == 6){
+        if(selectedCourse.index == 6){
             navigate("/courses")
         }
     }, [])
     const date = new Date()
     const currentDate = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
   return (
-    <main className='w-full center mt-[20vh] '>
-        <div className="flex flex-col gap-7 w-11/12 lg:w-10/12 xl:w-9/12">
+    <main className='w-full center mt-[15vh] '>
+        <div className="flex flex-col gap-3 w-11/12 lg:w-10/12 xl:w-9/12">
 
-        <h1 className='font-bold text-xl'>Proceed to Payment</h1>
+        <h1 className='font-bold text-xl uppercase'>Details</h1>
+
         <div className="flex flex-col gap-3">
+            <InfoComponent 
+                title={"Full Name"}
+                info={formInputs?.fullName}
+            />
+            <InfoComponent 
+                title={"Phone Number"}
+                info={formInputs?.number}
+            />
             <InfoComponent 
                 title={"Course Title"}
                 info={course?.title}
@@ -49,16 +58,21 @@ export const Payment = () => {
                 info={course?.price}
             />
             <InfoComponent 
+                title={"Training Date"}
+                info={formInputs?.startDate}
+            />
+            <InfoComponent 
                 title={"Duration"}
                 info={course?.duration}
             />
             <InfoComponent 
-                title={"Date"}
+                title={"Date Of Payment"}
                 info={currentDate}
             />
         </div>
 
 
+        <h1 className='font-bold text-xl mt-8'>Proceed to Payment</h1>
         <div className="flex flex-col gap-3">
             <p>
                 Kindly make payment via bank transfer and forward your receipt to the whatsapp account below or Pay with cash at our office
@@ -71,19 +85,14 @@ export const Payment = () => {
                 />
                 <InfoComponent 
                     title={"Bank Name"}
-                    info={selectedCourseName == "forklift" ? accounts.forklift.bank : accounts.general.bank}
+                    info={selectedCourse.name == "forklift" ? accounts.forklift.bank : accounts.general.bank}
                 />
                 <InfoComponent 
                     title={"Account Number"}
-                    info={selectedCourseName == "forklift" ? accounts.forklift.number : accounts.general.number}
+                    info={selectedCourse.name == "forklift" ? accounts.forklift.number : accounts.general.number}
                 />
             </div>
-          
-
-
         </div>
-
-       
         </div>
     </main>
   )

@@ -49,7 +49,7 @@ export const Nav = () => {
 
                 {
                     NavInfo.map((nav, key) => (
-                        <Link key={key} to={`/${nav.link}`} className={`flex gap-3 items-center lg:gap-0 lg:flex-col ${currentNav == key ? 'border-b border-blue-900' : ''}`} onClick={()=> {
+                        <Link key={key} to={`/${nav.link}`} className={`flex gap-3 items-center lg:gap-0 lg:flex-col w-fit ${currentNav == key ? 'border-b border-blue-900 font-bold' : ''}`} onClick={()=> {
                             setCurrentNav(key)
                             setDropDownPos(100)
                             }}>

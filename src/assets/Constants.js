@@ -79,16 +79,15 @@ const NavInfo = [
         icon: 'book',
         link: 'courses'
     },
-
-    {
-        title: 'Contact',
-        icon: 'telephone',
-        link: 'contact'
-    },
     {
         title: 'Gallery',
         icon: 'image',
         link: 'gallery'
+    },
+    {
+        title: 'Contact',
+        icon: 'telephone',
+        link: 'contact'
     },
     {
         title: 'Certificate Verification',
@@ -432,27 +431,37 @@ export const NarrowedCourses = {
     manual: {
         title: "Manual Car Driving",
         price: "95,000",
-        duration: "1 Month"
+        duration: "1 Month",
+        day: "Monday",
+        interval: 4
     },
     automatic: {
         title: "Automatic Car Driving",
         price: "80,000",
-        duration: "1 Month"
+        duration: "1 Month",
+        day: "Monday",
+        interval: 4
     },
     truck: {
         title: "Truck Driving (10 tons)",
         price: "330,000",
-        duration: "1 Month"
+        duration: "1 Month",
+        day: "Thursday",
+        interval: 4
     },
     trailer: {
         title: "Trailer Driving",
         price: "850,000",
-        duration: "10 Weeks"
+        duration: "10 Weeks",
+        day: "Thursday",
+        interval: 10
     },
     forklift: {
         title: "Forklift Operation",
         price: "200,000",
-        duration: "6 Weeks"
+        duration: "6 Weeks",
+        day: "Monday",
+        interval: 6
     }
 }
 

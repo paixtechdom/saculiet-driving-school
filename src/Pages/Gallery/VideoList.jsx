@@ -13,12 +13,11 @@ import { VideoComponent } from './VideoComponent'
 
 export const VideoList = ({type}) => {
     const [ videos, setVideos ] = useState([])
-    const [ id, setId ] = useState(10)
     const { dbLocation, setCurrentNav, setDisplayPisc } = useContext(AppContext)
     useEffect(() => {
         document.documentElement.scrollTop = 0
         setDisplayPisc(false)
-        setCurrentNav(4)
+        setCurrentNav(3)
         // fetchMoreVideo()
         fetchVideos()
     }, [])
@@ -32,7 +31,6 @@ export const VideoList = ({type}) => {
         else{
             axios.get(`${dbLocation}/videos.php`).then(function(res){
                 setVideos(res.data)
-                console.log(res.data)
             })
         }
     }  

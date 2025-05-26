@@ -13,7 +13,10 @@ const Gallery = () => {
     useEffect(() => {
         setCurrentNav(4)
         nav('/Gallery/Pictures')
+        document.documentElement.scrollTop = 0
+        setCurrentNav(3)
     }, [])
+
 
 
    return(

@@ -32,10 +32,21 @@ const Layout = () =>{
   const [ showZoom, setShowZoom ] = useState(false)
   const [ displayPics, setDisplayPisc ] = useState(true)
   const [ imageSource, setImageSource ] = useState('')
-  const [ selectedCourse, setSelectedCourse ] = useState(6)
-  const [ selectedCourseName, setSelectedCourseName ] = useState("")
+  const [ selectedCourse, setSelectedCourse ] = useState({
+    index: 6,
+    name: ""
+  })
   const  dbLocation = db
 
+  const [ formInputs, setFormInputs ] = useState({
+    startDate: "",
+    fullName: "",
+    type: "",
+    companyName: "",
+    position: "",
+    email: "",
+    number: ""
+})
 
   useEffect(() => {
     setTimeout(() => {
@@ -45,7 +56,7 @@ const Layout = () =>{
   return(
     <div className='app overflow-hidden'>
       <HelmetProvider>
-        <AppContext.Provider value={{currentNav, setCurrentNav, dbLocation, alertType, setAlertType, alertMessage, setAlertMessage, showAlert, setShowAlert, showZoom, setShowZoom, imageSource, setImageSource, displayPics, setDisplayPisc, selectedCourse, setSelectedCourse, selectedCourseName, setSelectedCourseName }}> 
+        <AppContext.Provider value={{currentNav, setCurrentNav, dbLocation, alertType, setAlertType, alertMessage, setAlertMessage, showAlert, setShowAlert, showZoom, setShowZoom, imageSource, setImageSource, displayPics, setDisplayPisc, selectedCourse, setSelectedCourse, formInputs, setFormInputs }}> 
         <Nav />  
             {
               isLoading ? 

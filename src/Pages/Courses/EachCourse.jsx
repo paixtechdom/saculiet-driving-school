@@ -3,7 +3,7 @@ import { PrimaryButton } from "../../Components/Button"
 import { AppContext } from "../../assets/Contexts/AppContext"
 
 export const EachCourse = ({course, i}) => {
-  const { setSelectedCourse, setSelectedCourseName } = useContext(AppContext)
+  const { setSelectedCourse } = useContext(AppContext)
 
     const [ showOutline, setShowOutline ] = useState(false)
     return(
@@ -41,8 +41,11 @@ export const EachCourse = ({course, i}) => {
                       <p className="text-gray-800">Price: #{cat.cost}</p>
                     </div>
 
-                    <div onClick={() => {setSelectedCourse(i)
-                      setSelectedCourseName(cat.name)
+                    <div onClick={() => {
+                      setSelectedCourse({
+                        index: i,
+                        name: cat.name
+                        })
                     }}>
                       <PrimaryButton
                         icon={'chevron-right'} 
