@@ -15,7 +15,7 @@ export const Footer = () => {
             <GalleryNav />
             : ''
         }
-        <div className="section relative flex justify-center items-center w-full text-gray-200 py-9 bg-blue mt-9 z-[500]">
+        <div className="secticonon relative flex justify-center items-center w-full text-gray-200 py-9 bg-blue mt-9 z-[500]">
             <div className="flex justify-between xl:w-10/12 w-11/12 items-center transition-all duration-500 gap-9 flex-col ">
            
 

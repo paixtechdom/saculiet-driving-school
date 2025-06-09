@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { CarouselItems } from "../../assets/Constants";
 import { PrimaryButton, SecondaryButton } from "../../Components/Button";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Link } from "react-router-dom";
 
 export const SHero = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -115,13 +116,9 @@ const HeroComponent = ({item}) => {
         }
       </h1>
       <p className="text-gray-200 text-lg tracking-wide leading-6 w-full">{item?.p}</p>
-      <div onClick={() => {
-        document.querySelector("#values").scrollIntoView({
-          behavior: "smooth"
-        })
-      }}>
-        <SecondaryButton text={'GET STARTED now'} icon={'arrow-down'} btnClas={'border'} buttonLink='Contact'/>
-      </div>
+      <Link to="/contact">
+        <SecondaryButton text={'GET STARTED'} icon={'arrow-right'} btnClas={'border'} buttonLink='Contact'/>
+      </Link>
 
     </div>
     </div>

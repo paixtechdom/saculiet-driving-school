@@ -3,7 +3,7 @@ import { PrimaryButton } from "../../Components/Button"
 import { AppContext } from "../../assets/Contexts/AppContext"
 
 export const EachCourse = ({course, i}) => {
-  const { setSelectedCourse } = useContext(AppContext)
+  const { setSelectedCourse, setFormInputs, formInputs } = useContext(AppContext)
 
     const [ showOutline, setShowOutline ] = useState(false)
     return(
@@ -45,6 +45,10 @@ export const EachCourse = ({course, i}) => {
                       setSelectedCourse({
                         index: i,
                         name: cat.name
+                        })
+                        setFormInputs({
+                          ...formInputs,
+                          course: cat.title
                         })
                     }}>
                       <PrimaryButton

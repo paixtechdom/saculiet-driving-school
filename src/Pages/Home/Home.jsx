@@ -5,6 +5,7 @@ import car from "../../assets/images/IMG_20200210_095940.jpg"
 import award from "../../assets/images/award.jpg"
 import international from "../../assets/images/gettyimages-78465904-612x612.jpg"
 import trailer from "../../assets/images/trailer.jpg"
+import truckImg from '../../assets/images/truckImg.jpg'
 import { useEffect } from "react"
 import { Values } from "./Values"
 import { Services } from "./Services"
@@ -35,22 +36,21 @@ export const Home = () => {
      
           <Values />
           <Numbers />
-          <div className="section">
 
+          <div className="section">
             <Services />
           </div>
 
-          <section className="section">
-            Courses
-          </section>
+          <Card id={'courses'} header={['Our Training Programs']} text={['We offer a top-notch Drivers Education Program, which consists of theory and practical training. We also focus and place emphasis on the student driver’s behavior and attitudes. Moreover, we also develop the concept of safety and courtesy while driving.', 'Training Programs includes, Car Driving (Manual and Automatic Vehicles), Truck Driving, Trailer Driving and Forklift Operations']} buttonText={'Register'} buttonLink={'courses'} img={truckImg} buttonIcon={'arrow-right'}/>
+          
 
-          <CardImageOverlay header1={'International and'} header2={' Local Clients'} text={["Whether it's international partners seeking global solutions or local connections seeking personalized services, our commitment remains unwavering", "At the crossroads of international and local expertise, we prioritize client satisfaction, delivering tailored solutions to meet the unique needs of every individual and organization we serve"]} buttonText={'GET STARTED'} buttonLink={'Contact'} img={international} img2={trailer} buttonIcon={'arrow-down'} />
+          <CardImageOverlay header1={'International and'} header2={' Local Clients'} text={["Whether it's international partners seeking global solutions or local connections seeking personalized services, our commitment remains unwavering", "At the crossroads of international and local expertise, we prioritize client satisfaction, delivering tailored solutions to meet the unique needs of every individual and organization we serve"]} buttonText={'GET STARTED'} buttonLink={'contact'} img={international} img2={trailer} buttonIcon={'arrow-right'} />
 
             
-          <Card id={'About'} header={['Top', ' Driving School ',' of The Year']} text={['Saculiet Nigeria Enterprises as the Top Driving School of the Year in Lagos State', 'TNNBP AWARD: Top Notch Nigeria Business & Professional Award', 'We are dedicated to transforming students into professionals, instilling confidence and competence for a lifetime of safe and enjoyable driving experiences']} buttonText={'GET  now'} buttonLink={'Contact'} img={award} buttonIcon={'arrow-down'}/>
+          <Card id={'About'} header={['Top', ' Driving School ',' of The Year']} text={['Saculiet Nigeria Enterprises as the Top Driving School of the Year in Lagos State', 'TNNBP AWARD: Top Notch Nigeria Business & Professional Award', 'We are dedicated to transforming students into professionals, instilling confidence and competence for a lifetime of safe and enjoyable driving experiences']} buttonText={'GET started'} buttonLink={'contact'} img={award} buttonIcon={'arrow-right'}/>
 
           <Reviews />
-          <Card header={['Book a training session now']} text={['Get started by booking a training session.', 'Adult, Private or Teens lesson, all available for your convenience.']} buttonText={'GET STARTED now'} buttonLink={'Contact'} img={car} buttonIcon={'arrow-down'}/>
+          <Card header={['Book a training session now']} text={['Get started by booking a training session.', 'Adult, Private or Teens lesson, all available for your convenience.']} buttonText={'GET STARTED'} buttonLink={'contact'} img={car} buttonIcon={'arrow-right'}/>
 
           {/* reviews, google map */}
           <PictureList type={'home'}/>

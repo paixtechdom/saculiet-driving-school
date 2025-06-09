@@ -135,7 +135,7 @@ const ContactForm = () => {
 
     return(
         <div id={'Contact'} className="flex flex-col gap-1 justify-center items-center w-full text-gray-900 pt-[10vh]">
-            <h3 className="text-3xl font-bold w-full mb-[8vh]">Contact Us</h3>
+            <h3 className="text-3xl font-bold w-full mb-[3vh]">Contact Us</h3>
             <div className="flex flex-col justify-between items-center w-full md:gap-9 gap-8 h-full bg-blue-70">
               
                 <div className="flex flex-col lg:grid lg:grid-cols-2 w-full h-full gap-6 justify-center">
@@ -160,12 +160,12 @@ const ContactForm = () => {
                         Emails.map((email, key) => (
                             <ParallaxRight key={key} id={`${email.title.replaceAll(' ', '')}`}>
 
-                                <a  href={`${email.link}`}
+                                <a  href={`mailto:${email.text}`}
                                 className="flex gap-4">
                                         <i className={`bi bi-${email.icon} text-gray-800 text-2xl`}></i>
                                     <div className="flex flex-col w-full gap-1"> 
                                         <h3 className="text-lg">{email.title}</h3>
-                                        <a className="truncate text-sm" href={`mailto:${email.text}`}>{email.text}</a>
+                                        <p className="truncate text-sm">{email.text}</p>
                                         
                                     </div>
                                 </a>
@@ -177,7 +177,7 @@ const ContactForm = () => {
 
                 <div className="flex flex-col lg:flex-row w-full gap-[50px] mt-[15vh]">
 
-                    <form className="contact flex justify-start w-full items-center transition-all duration-500 gap-5 flex-col h-full md:w-full bg-gray-900 p-9 rounded-xl shadow-xl" onSubmit={handleSubmit}>
+                    <form className="contact flex justify-start w-full items-center transition-all duration-500 gap-5 flex-col h-fit lg:h-full md:w-full bg-gray-900 p-9 rounded-xl shadow-xl" onSubmit={handleSubmit}>
 
                         <div className="w-full ">
                             <h2 className="text-2xl text-gray-100">Send us a message</h2>
@@ -241,7 +241,7 @@ const ContactForm = () => {
                         </ParallaxRight>
                     </form>
                     
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2590727079746!2d3.3437315749937304!3d6.614700193379383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d50a6b315c9%3A0x6b09a379ce620c75!2sSaculiet%20Driving%20School%20and%20Logistics!5e0!3m2!1sen!2sus!4v1709603258704!5m2!1sen!2sus" className="border-0 w-full h-96 rounded-xl outline-none" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2590727079746!2d3.3437315749937304!3d6.614700193379383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d50a6b315c9%3A0x6b09a379ce620c75!2sSaculiet%20Driving%20School%20and%20Logistics!5e0!3m2!1sen!2sus!4v1709603258704!5m2!1sen!2sus" className="border-0 w-full h-96 rounded-xl outline-none" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
 
 
                 </div>

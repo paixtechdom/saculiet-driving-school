@@ -39,14 +39,19 @@ const Layout = () =>{
   const  dbLocation = db
 
   const [ formInputs, setFormInputs ] = useState({
-    startDate: "",
     fullName: "",
+    email: "",
+    number: "",
     type: "",
     companyName: "",
     position: "",
-    email: "",
-    number: ""
+    startDate: "",
+    course: "",
+    date: "",
+    time: ""
 })
+
+
 
   useEffect(() => {
     setTimeout(() => {

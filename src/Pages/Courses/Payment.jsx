@@ -66,7 +66,7 @@ export const Payment = () => {
                 info={course?.duration}
             />
             <InfoComponent 
-                title={"Date Of Payment"}
+                title={"Date"}
                 info={currentDate}
             />
         </div>

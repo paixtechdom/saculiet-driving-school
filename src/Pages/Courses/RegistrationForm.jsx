@@ -3,6 +3,11 @@ import { PrimaryButton } from '../../Components/Button'
 import { AppContext } from '../../assets/Contexts/AppContext'
 import { useNavigate } from 'react-router-dom'
 import { NarrowedCourses } from '../../assets/Constants'
+import axios from "axios"
+import { ClipLoader } from "react-spinners"
+import qs from 'qs';
+
+
 
 const GetWeekdayDates = (dayOfWeek, weekInterval) => {
     const daysOfWeekMap = {"Sunday": 0, "Monday": 1, "Tuesday": 2, "Wednesday": 3, "Thursday": 4, "Friday": 5, "Saturday": 6};
@@ -39,7 +44,6 @@ const GetWeekdayDates = (dayOfWeek, weekInterval) => {
 }
 
 
-
 const RegistrationForm = () => {
     const { setShowAlert, setAlertMessage, setAlertType, setSelectedCourse, selectedCourse, formInputs, setFormInputs } = useContext(AppContext)
     
@@ -51,15 +55,84 @@ const RegistrationForm = () => {
     const navigate = useNavigate()
     const [ isSending, setIsSending ] = useState(false)
 
+    //  const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwNIvQCpJNrPms8jK6_SpEQ_Uz0YBFvL8HActvZBj1z8w5rE7bTq3ATSdgJ7ivEU9HsKA/exec"
+     const BEST_SHEET_CONNECTION_URL = "https://api.sheetbest.com/sheets/7ccd4ca7-2dcf-4206-abd7-f45b256077a0"
 
-    const HandleSubmit = (e) => {
-        // console.table(formInputs)
-        e.preventDefault()
-        setShowAlert(true)
-        setAlertType('success')
-        setAlertMessage(['Request Submitted successfully!'])
-        navigate("/courses/payment")
+     const today = new Date();
+     const year = today.getFullYear();
+     const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-indexed, add 1, then pad with '0'
+     const day = today.getDate().toString().padStart(2, '0'); // Pad with '0'
+     const currentDate = `${year}-${month}-${day}`; 
+
+
+     const now = new Date();
+    const currentTime = now.toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+    });
+
+
+     const HandleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSending(true);
+        setShowAlert(false); // Hide previous alert
+
+        if(formInputs.type == "Individual"){
+            formInputs.companyName = ""
+            formInputs.position = ""
+        }
+
+        formInputs.date= currentDate,
+        formInputs.time= currentTime
+      
+        // console.log("Form Inputs:", formInputs);
+        
+        try {
+        const response = await axios.post(
+            BEST_SHEET_CONNECTION_URL,
+            JSON.stringify(formInputs),
+            {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+            }
+        );
+
+        console.log("Response:", response.data);
+        if (response.status === 200) {
+            setShowAlert(true);
+            setAlertType('success');
+            setAlertMessage([response.data.message || 'Request Submitted successfully!']);
+            
+            navigate("/courses/payment")
+        } else {
+            setShowAlert(true);
+            setAlertType('error');
+            setAlertMessage([response.data.message || 'Failed to submit request.']);
+        }
+        } catch (error) {
+        console.error("Error:", error);
+        setShowAlert(true);
+        setAlertType('error');
+        // Provide more specific error messages if available from the error object
+        if (error.response) {
+            // Server responded with a status other than 2xx range
+            setAlertMessage([`Server error: ${error.response.status} - ${error.response.statusText}`, JSON.stringify(error.response.data)]);
+        } else if (error.request) {
+            // Request was made but no response received (e.g., network error)
+            setAlertMessage(['Network error: No response from server. Please check your internet connection or the server URL.']);
+        } else {
+            // Something else happened while setting up the request
+            setAlertMessage([`Error setting up request: ${error.message}`]);
+        }
+        } finally {
+        setIsSending(false);
+        }
     }
+
+    
+    
 
     const types = ["Individual", "Corporate Organization"]
 
@@ -139,11 +212,13 @@ const RegistrationForm = () => {
             />
 
             <div className="flex gap-3 items-center">
-                <button className="bg-blue w-full md:w-[200px] p-4 text-gray-100 rounded-lg flex justify-center items-center gap-1 text-sm col-span-2 uppercase">
+                <button className="bg-blue w-full md:w-[200px] p-4 text-gray-100 rounded-lg flex justify-center items-center gap-1 text-sm col-span-2 uppercase" onSubmit={(e) => {
+                    !isSending && HandleSubmit(e)
+                }}>
                     {
                         isSending ?
                         <>
-                        <ClipLoader color={'rgb(225, 225, 225)'} size={15} loading={true} speedMultiplier={0.5}/> SENDING...
+                        SENDING <ClipLoader color={'rgb(225, 225, 225)'} size={15} loading={true} speedMultiplier={0.5}/> 
                         </>
                         
                         :

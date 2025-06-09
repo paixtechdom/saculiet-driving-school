@@ -15,8 +15,8 @@ const Logo  = logo;
 const LogoText  = logoText;
 
 
-// const  db = 'https://saculietdrivingschool.org/saculietAPI'
-const  db = 'http://localhost:80/saculietAPI'
+const  db = 'https://saculietdrivingschool.org/saculietAPI'
+// const  db = 'http://localhost:80/saculietAPI'
 
 
 

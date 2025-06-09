@@ -31,9 +31,9 @@ const Card = ({header, text, img, buttonText, buttonLink, clas, w, buttonIcon, g
                         {
                             buttonText ? 
                             
-                            <a href={`#${buttonLink}`}>
+                            <Link to={`/${buttonLink}`}>
                                 <PrimaryButton text={buttonText} icon={!buttonIcon == '' ? buttonIcon :'arrow-right'}/>
-                            </a> : ''
+                            </Link> : ''
                             
                         }
                         </ParallaxRight>
@@ -98,9 +98,9 @@ const CardImageOverlay = ({header1, header2, text, img, img2, buttonText, button
                 {
                     buttonText ? 
                     
-                    <a href={`#${buttonLink}`}>
+                    <Link to={`/${buttonLink}`}>
                         <SecondaryButton text={buttonText} icon={!buttonIcon == '' ? buttonIcon :'arrow-right'}/>
-                    </a> : ''
+                    </Link>: ''
                     
                 }
                 </Parallax>

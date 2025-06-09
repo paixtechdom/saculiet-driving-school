@@ -6,23 +6,23 @@ const Parallax = ({children, id, center, clas}) => {
     const [ isPosMatch, setIsPosMatch ] = useState(false)
     useEffect(() =>{
         
-        const pos = document.querySelector(`#${newId}`).getBoundingClientRect()
-        if(pos.top < 700){
-            setIsPosMatch(true)
-        }      
+       handleScroll()
         
     }, [])
     const handleScroll = () => {
-        const pos = document.querySelector(`#${newId}`).getBoundingClientRect()
-        if(pos.top < 700){
-            setIsPosMatch(true)
-        }  
-      
+        const pos = document?.querySelector(`#${newId}`)
+        const a = pos?.getBoundingClientRect()
+        if(pos !== null){
+            if(a.top < 700){
+                setIsPosMatch(true)
+            }  
+        } 
+        if(a){
+        }      
     }
 
     useEffect(() =>{
         document.addEventListener('scroll', handleScroll)
-        
     }, [])
 
     return(
@@ -37,19 +37,19 @@ const ParallaxRight = ({children, id, center, clas}) => {
     const newId = id.replaceAll(' ', '')
     const [ isPosMatch, setIsPosMatch ] = useState(false)
     useEffect(() =>{
-        
-        const pos = document.querySelector(`#${newId}`).getBoundingClientRect()
-        if(pos.top < 700){
-            setIsPosMatch(true)
-        }      
-        
+      
+        handleScroll()
     }, [])
     const handleScroll = () => {
-        const pos = document.querySelector(`#${newId}`).getBoundingClientRect()
-        if(pos.top < 700){
-            setIsPosMatch(true)
-        }  
-      
+        const pos = document?.querySelector(`#${newId}`)
+        const a = pos?.getBoundingClientRect()
+        if(pos !== null){
+            if(a.top < 700){
+                setIsPosMatch(true)
+            }  
+        } 
+        if(a){
+        }
     }
 
     useEffect(() =>{
