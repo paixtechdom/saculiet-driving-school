@@ -7,8 +7,8 @@ import trainingPic from './images/images (19).jpeg'
 import truck from './images/gettyimages-1235246163-612x612.jpg'
 import trailer from './images/trailer.jpg'
 import forklift from './images/forklift.jpg'
-import truckImg from './images/truckImg.jpg'
-import carImg from './images/carImg.jpg'
+import truckImg from './images/transTruck.png'
+import carImg from './images/transCar.png'
 
 
 const Logo  = logo;

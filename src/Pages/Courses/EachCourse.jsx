@@ -7,7 +7,7 @@ export const EachCourse = ({course, i}) => {
 
     const [ showOutline, setShowOutline ] = useState(false)
     return(
-      <div className="flex flex-col lg:flex-row gap-3 relative">
+      <div className="flex flex-col items-center lg:flex-row gap-3 relative h-full">
   
           <div className="flex flex-col lg:w-7/12 pr-4 gap-2">
             <h2 className='text-2xl font-bold text-blue'>{course.title}</h2>
@@ -100,7 +100,7 @@ export const EachCourse = ({course, i}) => {
   
   
   
-          <div className="fl ex items-c enter justify-bet ween w- full lg:w- 8/12 lg:h -[40vh] sticky top-[20vh] right-[10px] "> 
+          <div className="h-fit flex items-center w-full lg:w-7/12 sticky"> 
             <img src={course.img} alt="" />
           </div>
   
