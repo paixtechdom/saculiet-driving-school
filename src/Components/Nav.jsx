@@ -31,8 +31,8 @@ export const Nav = () => {
 
             <Link to='/' className="logo text-2xl text-gray-300">
             {/* <a href='http://localhost:5173' className="logo text-2xl text-gray-300"> */}
-
                 <img src={Logo} alt="Logo" className="w-2/12 lg:w-3/12"/>
+
             </Link>
             <div className="flex gap-4">
 

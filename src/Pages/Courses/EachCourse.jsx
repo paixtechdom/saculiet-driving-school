@@ -13,7 +13,7 @@ export const EachCourse = ({course, i}) => {
             <h2 className='text-2xl font-bold text-blue'>{course.title}</h2>
             <p className="text-gray-700 text-[15px]">{course?.desc}</p>
   
-        {/* course categories */}
+          {/* course categories */}
             <div className="flex flex-col">
               {course.categories.length > 1 &&
                 <h3 className='font-bold mt-2 mb-1'>
@@ -66,42 +66,42 @@ export const EachCourse = ({course, i}) => {
 
             {/* course outline */}
   
-          <div className="flex flex-col gap-5 bg-gray-50 rounded-xl p-4 w-full shadow-xl mt-4">
-            <div className="flex items-center gap-3 justify-between cursor-pointer"  onClick={() => setShowOutline(!showOutline)}>
-              <p className='font-bold'>
-                {showOutline ? "Hide " : "View"} Course Outline
-              </p>
-              <p className='cursor-pointer bg-gray-200 rounded-full w-8 flex items-center justify-center'>
-              {
-                showOutline ?
-                <i className="bi bi-chevron-up text-lg"></i>:
-                <i className="bi bi-chevron-down text-lg mt-1"></i>
-                
-              }
-              </p>
-            </div>
-  
-            {
-              showOutline &&
-              <div className='flex flex-col gap-3 mb-4'>
+            <div className="flex flex-col gap-5 bg-gray-50 rounded-xl p-4 w-full shadow-xl mt-4">
+              <div className="flex items-center gap-3 justify-between cursor-pointer"  onClick={() => setShowOutline(!showOutline)}>
+                <p className='font-bold'>
+                  {showOutline ? "Hide " : "View"} Course Outline
+                </p>
+                <p className='cursor-pointer bg-gray-200 rounded-full w-8 flex items-center justify-center'>
                 {
-                  course.outline.map((c, key) => (
-                    <div key={key} className="flex gap-1 items-center">                 
-                      <i className="bi bi-circle-fill text-blue scale-[0.7] opacity-50"></i>
-                      <p className="text-black whitespace-normal break-word">{c}</p>
-                    </div>
-                  ))
+                  showOutline ?
+                  <i className="bi bi-chevron-up text-lg"></i>:
+                  <i className="bi bi-chevron-down text-lg mt-1"></i>
+                  
                 }
+                </p>
               </div>
-            }
-  
+    
+              {
+                showOutline &&
+                <div className='flex flex-col gap-3 mb-4'>
+                  {
+                    course.outline.map((c, key) => (
+                      <div key={key} className="flex gap-1 items-center">                 
+                        <i className="bi bi-circle-fill text-blue scale-[0.7] opacity-50"></i>
+                        <p className="text-black whitespace-normal break-word">{c}</p>
+                      </div>
+                    ))
+                  }
+                </div>
+              }
+    
+            </div>
           </div>
-          </div>
   
   
   
-          <div className="h-fit flex items-center w-full lg:w-7/12 sticky"> 
-            <img src={course.img} alt="" />
+          <div className="lg:w-5/12 w-full  h-fit">
+            <img src={course.img} alt="" className="w-full h-auto rounded-xl shadow" />
           </div>
   
   

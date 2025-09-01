@@ -26,10 +26,10 @@ export const Footer = () => {
                 {
                     NavInfo.map((nav, key) => (
                         <ParallaxRight key={key} id={nav.title.replaceAll(' ', '')}>
-                            <a href={`#${nav.title}`} className='flex gap-3'>
+                            <Link to={`/${nav.link}`} className='flex gap-3'>
                                 <i className={`bi bi-${nav.icon}-fill`}></i>
                                 <p className="">{nav.title}</p>
-                            </a>
+                            </Link>
                         </ParallaxRight>
                 
                     ))

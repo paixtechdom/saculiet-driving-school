@@ -24,7 +24,7 @@ const Courses = () => {
         ]}  
         img={img} buttonIcon={'arrow-down'}/>
       
-      <div className="w-11/12 lg:w-10/12 flex flex-col">
+      <div className="w-11/12 lg:w-10/12 flex flex-col relative">
 
 
         <div className="flex flex-col gap-[20vh] relative">        
@@ -51,6 +51,7 @@ const Courses = () => {
       </div>
        
     </main>
+  
   )
 }
 

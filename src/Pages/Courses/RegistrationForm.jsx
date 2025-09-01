@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { NarrowedCourses } from '../../assets/Constants'
 import axios from "axios"
 import { ClipLoader } from "react-spinners"
-import qs from 'qs';
+
 
 
 

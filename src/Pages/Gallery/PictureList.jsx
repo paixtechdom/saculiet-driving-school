@@ -14,6 +14,8 @@ import  "react-lazy-load-image-component/src/effects/opacity.css"
 
 export const PictureList = ({type}) => {
     const [ images, setImages ] = useState([])
+    const [ loading, setLoading ] = useState(false)
+
     const { dbLocation, setShowZoom, setImageSource, setCurrentNav, setDisplayPisc } = useContext(AppContext)
 
     useEffect(() => {
@@ -24,6 +26,7 @@ export const PictureList = ({type}) => {
     }, [])
 
     const fetchImages = () => {
+        setLoading(true)
         if(images.length < 1){
             if(type == 'home'){
                 axios.get(`${dbLocation}/images.php/latest/8`).then(function(res){
@@ -34,9 +37,10 @@ export const PictureList = ({type}) => {
                 axios.get(`${dbLocation}/images.php`).then(function(res){
                     setImages(res.data)
                 })
-            }
-
+            }            
         }
+
+        setLoading(false)
     }
 
     return(
@@ -52,9 +56,26 @@ export const PictureList = ({type}) => {
             </div>
             <div className="xl:w-9/12 w-11/12 items-center transition-all duration-500 flex-col grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2 text-gray-200 py-5">
             {
+                loading ? 
+                <>
+                    <ImageLoad />
+                    <ImageLoad />
+                    <ImageLoad />
+                    <ImageLoad />
+                    <ImageLoad />
+                    <ImageLoad />
+                    <ImageLoad />
+                    <ImageLoad />
+                    <ImageLoad />
+                    <ImageLoad />
+                    <ImageLoad />
+                    <ImageLoad />
+                </>
+                 :
                 React.Children.toArray(
                     images?.map((image) => (
-                        <div  className='overflow-hidden relative left-0 rounded-lg w-full h-[20vh] lg:h-48 flex-col flex items-center justify-center md:my-0 border bg-gray-900' onClick={() => {
+                        <div  className='overflow-hidden relative left-0 rounded-lg w-full h-[20vh] lg:h-48 flex-col flex items-center justify-center md:my-0 border bg-gray-900' 
+                        onClick={() => {
                             setShowZoom(true)
                             setImageSource(`${dbLocation}/images/${image.fileName}`)
                         }}>
@@ -77,5 +98,11 @@ export const PictureList = ({type}) => {
         </div>
     </div>
     
+    )
+}
+
+const ImageLoad = () => {
+    return(
+        <div className='w-full rounded-lg bg-gray-900 h-[20vh] lg:h-48 animate-pulse'></div>
     )
 }

@@ -4,7 +4,7 @@ import { Parallax, ParallaxRight } from '../../Components/Parallax'
 
 export const Values = () => {
     return(
-        <div id='values' className="flex justify-center items-center w-full text-gray-900 lg:py-[10vh]">
+        <div id='values' className="flex justify-center items-center w-full text-gray-900 lg:py-[10vh] pb-[10vh]">
             <div className="flex justify-center xl:w-9/12 lg:w-10/12 w-11/12 transition-all duration-1000 gap-7 md:grid md:grid-cols-3 sm:flex-col flex-col z-50 items-stretch">
 
                 {

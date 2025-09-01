@@ -241,7 +241,7 @@ const ContactForm = () => {
                         </ParallaxRight>
                     </form>
                     
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2590727079746!2d3.3437315749937304!3d6.614700193379383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d50a6b315c9%3A0x6b09a379ce620c75!2sSaculiet%20Driving%20School%20and%20Logistics!5e0!3m2!1sen!2sus!4v1709603258704!5m2!1sen!2sus" className="border-0 w-full h-96 rounded-xl outline-none" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2590727079746!2d3.3437315749937304!3d6.614700193379383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d50a6b315c9%3A0x6b09a379ce620c75!2sSacu liet%20Driving%20School%20and%20Logistics!5e0!3m2!1sen!2sus!4v1709603258704!5m2!1sen!2sus" className="border-0 w-full h-96 rounded-xl outline-none" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
 
 
                 </div>
